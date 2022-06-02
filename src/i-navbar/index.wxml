@@ -1,0 +1,29 @@
+<!-- 防止 fixed 元素遮挡, 在外层套一个 view -->
+<view style="height: {{occupy ? statusBarHeight + navHeight : 0}}px;">
+  <view
+    class="nav-bar__container {{fixed? 'fixed' : ''}}"
+    style="padding-top: {{ statusBarHeight }}px; color: {{color}}; background-color: {{backgroundColor}};"
+  >
+    <view
+      class="nav-bar"
+      style="height: {{navHeight}}px; width: {{navWidth}}px;"
+    >
+      <i-loading
+        wx:if="{{loading}}"
+        type="normal"
+        size="20"
+        class="i-loading-class"
+      ></i-loading>
+
+      <i-icon
+        wx:elif="{{leftIcon}}"
+        name="{{leftIcon}}"
+        class="i-icon-class"
+        bindtap="click"
+        size="20"
+      ></i-icon>
+
+      <view wx:if="{{title}}" class="nav-bar__title">{{title}}</view>
+    </view>
+  </view>
+</view>
