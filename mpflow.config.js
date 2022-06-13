@@ -10,7 +10,7 @@ module.exports = {
   ],
   settings: {
     urlCheck: true,
-    es6: false,
+    es6: true,
     enhance: false,
     postcss: false,
     preloadBackgroundData: false,
