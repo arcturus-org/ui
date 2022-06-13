@@ -1,0 +1,6 @@
+<view
+  class="i-icon__container i-icon-class"
+  style="width: {{size}}px;height: {{size}}px;"
+>
+  <view class="{{icon}}" style="font-size: {{size}}px;"></view>
+</view>

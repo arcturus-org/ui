@@ -1,0 +1,9 @@
+@import './style/stylesheet.wxss';
+@import './style/font-awesome.wxss';
+@import './style/brands.wxss';
+
+.i-icon__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
