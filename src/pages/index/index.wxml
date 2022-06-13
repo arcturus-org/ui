@@ -1,0 +1,4 @@
+<i-navbar
+  title="首页"
+  leftIcon="fa-solid fa-address-card"
+></i-navbar>
