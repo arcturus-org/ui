@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
+    "target": "esnext",
     "module": "esnext",
-    "target": "es2015",
-    "lib": ["es2015", "es2017", "dom"],
-    "noImplicitAny": false,
+    "importHelpers": true,
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "allowSyntheticDefaultImports": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata":true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext"
+    ]
   },
-  "files": [
-    "node_modules/miniprogram-api-typings/index.d.ts"
-  ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "typings"
   ],
   "exclude": [
     "node_modules"
