@@ -1,0 +1,3 @@
+<view class="i-card-title__container">
+  <slot />
+</view>

@@ -1,0 +1,33 @@
+.nav_bar__margin {
+  height: auto;
+}
+
+.nav-bar__container {
+  z-index: 999;
+  width: 100%;
+
+  &.fixed {
+    position: fixed;
+  }
+
+  .nav-bar {
+    box-sizing: border-box;
+    overflow: hidden; // 超出区域部分使用 ... 代替
+    display: flex;
+    align-items: center;
+    padding: 0 5px 0 10px;
+
+    .nav-bar__title {
+      flex: 1;
+      font-size: 1.1em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .i-icon-class,
+    .i-loading-class {
+      margin-right: 5px;
+    }
+  }
+}

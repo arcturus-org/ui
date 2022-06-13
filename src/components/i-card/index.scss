@@ -1,0 +1,14 @@
+.i-card__container {
+  padding: 5px;
+
+  .i-card-item__container {
+    border-radius: 5px;
+    padding: 10px;
+    // 当背景色具有透明度时, 进行毛玻璃处理
+    backdrop-filter: blur(10px);
+  }
+
+  &.i-card-outlined {
+    border: 1px solid rgba(0, 0, 0, 0.12);
+  }
+}

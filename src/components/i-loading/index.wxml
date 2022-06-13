@@ -1,0 +1,35 @@
+<view class="i-loading__container i-loading-class">
+  <!-- 百叶窗式 loading -->
+  <view
+    wx:if="{{type === 'shutter'}}"
+    class="i-shutter-loading__container"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <span class="leaf-1 leaf"></span>
+    <span class="leaf-2 leaf"></span>
+    <span class="leaf-3 leaf"></span>
+    <span class="leaf-4 leaf"></span>
+  </view>
+
+  <!-- 普通 loading -->
+  <view
+    wx:if="{{type === 'normal'}}"
+    class="i-normal-loading__container"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view class="loading"></view>
+  </view>
+
+  <!-- 脉动式 loading -->
+  <view
+    wx:if="{{type === 'pulse'}}"
+    class="i-pulse-loading__container"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view class="pulse"></view>
+  </view>
+
+  <text wx:if="{{text}}" class="i-loading__text" style="color: {{color}};"
+    >{{text}}</text
+  >
+</view>
