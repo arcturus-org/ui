@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-alert": "./i-alert/index",
+    "i-card": "./i-card/index"
+  }
+}

@@ -1,7 +1,8 @@
 {
   "name": "iceui-weapp",
   "version": "1.0.0",
-  "private": "true",
+  "author": "ARCTURUS",
+  "license": "MIT",
   "scripts": {
     "build": "mpflow-service build",
     "dev": "mpflow-service dev",
@@ -23,5 +24,12 @@
     "miniprogram-api-typings": "^3.4.6",
     "miniprogram-simulate": "^1.2.7",
     "typescript": "^3.9.7"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:ICE99125/iceui-weapp.git"
   }
 }
