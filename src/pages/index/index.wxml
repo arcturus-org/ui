@@ -1,4 +1,3 @@
-<i-navbar
-  title="首页"
-  leftIcon="fa-solid fa-address-card"
-></i-navbar>
+<view class="container">
+  <i-navbar loading title="首页" sub="测试"></i-navbar>
+</view>
