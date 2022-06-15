@@ -10,7 +10,12 @@ Component({
     backgroundColor: {
       // 背景色
       type: String,
-      value: '#fff', // 填入 transparent 设置成透明
+      value: 'rgba(255, 255, 255, 0.8)', // 填入 transparent 设置成透明
+    },
+    blur: {
+      // 是否开启毛玻璃效果
+      type: Boolean,
+      value: true,
     },
     loading: {
       // 是否处于 loading 状态
@@ -22,6 +27,7 @@ Component({
       value: true, // 导航栏是否固定
     },
     title: String, // 导航栏标题
+    sub: String, // 副标题
     leftIcon: String, // 左图标(一般都是返回图标)
     occupy: {
       type: Boolean,

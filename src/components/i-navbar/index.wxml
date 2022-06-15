@@ -1,8 +1,11 @@
-<!-- 防止 fixed 元素遮挡, 在外层套一个 view -->
-<view style="height: {{occupy ? statusBarHeight + navHeight : 0}}px;">
+<!-- 防止 fixed 元素遮挡下方元素, 在外层套一个 view -->
+<view
+  class="nav-bar__occupy"
+  style="height: {{occupy ? statusBarHeight + navHeight : 0}}px;"
+>
   <view
-    class="nav-bar__container {{fixed? 'fixed' : ''}}"
-    style="padding-top: {{ statusBarHeight }}px; color: {{color}}; background-color: {{backgroundColor}};"
+    class="nav-bar__container {{fixed? 'fixed' : ''}} {{blur ? 'blur' : ''}}"
+    style="padding-top: {{ statusBarHeight }}px; color: {{color}}; background: {{backgroundColor}};"
   >
     <view
       class="nav-bar"
@@ -23,7 +26,7 @@
         size="20"
       ></i-icon>
 
-      <view wx:if="{{title}}" class="nav-bar__title">{{title}}</view>
+      <i-header style="width: {{navWidth - 40}}px;" title="{{title}}" sub="{{sub}}"></i-header>
     </view>
   </view>
 </view>
