@@ -1,6 +1,6 @@
 <view bindtap="activate" class="i-tabbar-item__container">
   <!-- 内置图标 -->
-  <i-icon wx:if="{{icon}}" name="{{active ? icon + '_fill' : icon}}"></i-icon>
+  <ice-icon wx:if="{{icon}}" name="{{active ? icon + '_fill' : icon}}"></ice-icon>
 
   <!-- 自定义图标 -->
   <block wx:else>

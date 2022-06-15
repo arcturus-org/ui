@@ -1,6 +1,6 @@
 <view class="i-search__container" style="background: {{background}};">
   <view class="i-search-item__container" style="border-radius: {{radius}}px;">
-    <i-icon name="search" size="20" class="i-icon-class"></i-icon>
+    <ice-icon name="search" size="20" class="i-icon-class"></ice-icon>
     <input
       value="{{value}}"
       placeholder="{{placeholder}}"

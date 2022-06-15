@@ -3,12 +3,12 @@
     class="i-alert-item__container i-alert-class"
     style="background-color: {{backgroundColor}};"
   >
-    <i-icon
+    <ice-icon
       i-icon-class="i-alert__icon"
       wx:if="{{icon_}}"
       name="{{icon_}}"
       size="20"
-    ></i-icon>
+    ></ice-icon>
     <view style="color: {{color}};" class="i-alert__message">{{message}}</view>
   </view>
 </view>
