@@ -1,4 +1,4 @@
-import getNavInfo from './navInfo';
+import getNavInfo from '../utils/navInfo';
 
 Component({
   properties: {

@@ -4,10 +4,10 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    '../i-tabbar-item/index': {
+    '../tabbar-item/index': {
       type: 'child',
     },
-    '../i-page/index': {
+    '../pages/index': {
       type: 'parent',
     },
   },

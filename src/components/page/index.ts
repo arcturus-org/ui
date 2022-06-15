@@ -1,6 +1,6 @@
 Component({
   relations: {
-    '../i-page/index': {
+    '../pages/index': {
       type: 'parent',
     },
   },

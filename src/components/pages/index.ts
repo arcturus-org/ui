@@ -4,7 +4,7 @@ Component({
     multipleSlots: true,
   },
   relations: {
-    '../i-page-item/index': {
+    '../page/index': {
       type: 'child',
       linked(target) {
         const { pages } = this.data;

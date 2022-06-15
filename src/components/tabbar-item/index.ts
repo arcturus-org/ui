@@ -1,6 +1,6 @@
 Component({
   relations: {
-    '../i-tabbar/index': {
+    '../tabbar/index': {
       type: 'parent',
     },
   },
