@@ -1,8 +1,8 @@
 {
     "component": true,
     "usingComponents": {
-        "i-icon": "../i-icon/index",
-        "i-loading": "../i-loading/index",
-        "i-header": "../i-header/index"
+        "ice-icon": "../icon/index",
+        "ice-loading": "../loading/index",
+        "ice-header": "../header/index"
     }
 }

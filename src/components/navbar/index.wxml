@@ -11,22 +11,28 @@
       class="nav-bar"
       style="height: {{navHeight}}px; width: {{navWidth}}px;"
     >
-      <i-loading
+      <!-- 导航栏加载图标 -->
+      <ice-loading
         wx:if="{{loading}}"
         type="normal"
         size="20"
         class="i-loading-class"
-      ></i-loading>
+      ></ice-loading>
 
-      <i-icon
+      <ice-icon
         wx:elif="{{leftIcon}}"
         icon="{{leftIcon}}"
         class="i-icon-class"
         bindtap="click"
         size="20"
-      ></i-icon>
+      ></ice-icon>
 
-      <i-header style="width: {{navWidth - 40}}px;" title="{{title}}" sub="{{sub}}"></i-header>
+      <!-- 导航栏标题 -->
+      <ice-header
+        style="width: {{navWidth - 40}}px;"
+        title="{{title}}"
+        sub="{{sub}}"
+      ></ice-header>
     </view>
   </view>
 </view>
