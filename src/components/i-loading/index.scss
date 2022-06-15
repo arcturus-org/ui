@@ -1,7 +1,7 @@
 // 这部分来着 codepen, 正经人谁会写这种东西
 
 $color1: rgba(255, 255, 255, 0.2);
-$color2: #e6e6e6;
+$color2: #c0c4cc;
 $duration: 1s;
 
 .i-loading__container {
@@ -66,12 +66,22 @@ $duration: 1s;
       border-radius: 50%;
       width: 100%;
       height: 100%;
-      border: 5px solid $color1;
+      border: 2px solid $color1;
       border-top-color: $color2;
       border-right-color: $color2;
       border-bottom-color: $color2;
       box-sizing: border-box;
       animation: spin $duration infinite linear;
+    }
+
+    // 普通旋转动画
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
     }
   }
 
@@ -153,16 +163,6 @@ $duration: 1s;
   }
   75% {
     content: '...';
-  }
-}
-
-// 普通旋转动画
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
   }
 }
 
