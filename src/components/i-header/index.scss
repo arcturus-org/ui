@@ -1,0 +1,37 @@
+.i-header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .i-header__text {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &.center {
+      align-items: center;
+    }
+
+    .i-header__title {
+      font-weight: bold;
+    }
+
+    .font_1 {
+      font-size: 1.2em;
+    }
+
+    .font_2 {
+      font-size: 1em;
+    }
+
+    .i-header__sub {
+      font-size: 0.8em;
+    }
+
+    .ellipsis {
+      overflow: hidden; // 超出的文本隐藏
+      text-overflow: ellipsis; // 溢出用省略号显示
+      white-space: nowrap; // 溢出不换行
+    }
+  }
+}

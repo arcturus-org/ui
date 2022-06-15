@@ -1,0 +1,17 @@
+<view class="i-header__container i-header-class">
+  <view class="i-header__text {{center?'center':''}}">
+    <!-- 主标题 -->
+    <view
+      class="i-header__title ellipsis {{sub ? 'font_2' : 'font_1'}}"
+      wx:if="{{title}}"
+    >
+      {{title}}
+    </view>
+    <!-- 副标题 -->
+    <view class="i-header__sub ellipsis" wx:if="{{sub}}">
+      {{sub}}
+    </view>
+  </view>
+  <!-- 自定义插槽 -->
+  <slot></slot>
+</view>
