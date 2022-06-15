@@ -1,7 +1,7 @@
 Component({
   externalClasses: ['i-card-class'],
   relations: {
-    '../i-card-title/index': {
+    '../i-header/index': {
       type: 'child',
     },
   },
