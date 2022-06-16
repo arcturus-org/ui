@@ -22,10 +22,18 @@ Component({
       type: Boolean,
       value: true,
     },
+    blur: {
+      // 是否开启磨砂背景
+      type: Boolean,
+      value: true,
+    },
+    backgroundColor: {
+      type: String,
+      value: 'rgba(255, 255, 255, 0.8)',
+    },
   },
   data: {
     children: <any>[],
-    nodes: <any>[],
     current: 0,
   },
   methods: {
@@ -33,26 +41,26 @@ Component({
       // 取消激活
       this.data.children[this.data.current].deActivate();
 
+      this.setData({
+        current: idx,
+      });
+
       // 允许外部获取当前 idx
-      // xx.wxml
-      // <i-tabbar bind:change="onChange"></i-tabbar>
-      //
-      // xx.ts
-      // onChange(e) { const idx = e.detail.idx }
       this.triggerEvent('change', { idx });
     },
   },
   lifetimes: {
     ready() {
-      const nodes = this.getRelationNodes('../i-tabbar-item/index');
+      const nodes = this.getRelationNodes(
+        '../tabbar-item/index'
+      );
 
       this.setData({
         children: nodes,
-        nodes: nodes.map((e) => e.data),
         current: this.data.selected,
       });
 
-      if (nodes && nodes.length > 0) {
+      if (nodes.length > 0) {
         // 父组件准备完成, 把相关子组件激活
         nodes[this.data.selected].activate();
       }

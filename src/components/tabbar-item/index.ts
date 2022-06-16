@@ -5,9 +5,9 @@ Component({
     },
   },
   properties: {
-    icon: String, // 目前仅支持 home | me | location | like
+    activeIcon: String,
+    inactiveIcon: String,
     name: String,
-    key: Number,
   },
   data: {
     active: false,
@@ -22,7 +22,9 @@ Component({
         });
 
         // 父组件一般只有一个
-        const parent = this.getRelationNodes('../i-tabbar/index')[0];
+        const parent = this.getRelationNodes(
+          '../tabbar/index'
+        )[0];
 
         const idx = parent.data.children.indexOf(this);
 
