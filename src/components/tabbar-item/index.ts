@@ -8,6 +8,10 @@ Component({
     activeIcon: String,
     inactiveIcon: String,
     name: String,
+    iconSize: {
+      type: Number,
+      value: 30,
+    },
   },
   data: {
     active: false,

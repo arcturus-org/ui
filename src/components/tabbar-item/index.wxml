@@ -7,6 +7,7 @@
   <ice-icon
     wx:if="{{activeIcon && inactiveIcon}}"
     icon="{{active ? activeIcon : inactiveIcon}}"
+    size="{{iconSize}}"
   ></ice-icon>
 
   <!-- 自定义图标 -->
