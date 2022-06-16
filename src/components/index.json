@@ -1,6 +1,10 @@
 {
   "usingComponents": {
-    "ice-alert": "./i-alert/index",
-    "ice-card": "./i-card/index"
+    "ice-alert": "./alert/index",
+    "ice-card": "./card/index",
+    "ice-header": "./header/index",
+    "ice-tabbar": "./tabbar/index",
+    "ice-tabbar-item": "./tabbar-item/index",
+    "ice-navbar": "./navbar/index"
   }
 }
