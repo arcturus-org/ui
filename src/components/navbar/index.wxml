@@ -1,7 +1,7 @@
 <!-- 防止 fixed 元素遮挡下方元素, 在外层套一个 view -->
 <view
   class="nav-bar__occupy"
-  style="height: {{occupy ? statusBarHeight + navHeight : 0}}px;"
+  style="height: {{occupy ? statusBarHeight + navHeight + 10 : 0}}px;"
 >
   <view
     class="nav-bar__container {{fixed? 'fixed' : ''}} {{blur ? 'blur' : ''}}"
