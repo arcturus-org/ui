@@ -4,7 +4,4 @@ Component({
       type: 'parent',
     },
   },
-  properties: {
-    key: String,
-  },
 });
