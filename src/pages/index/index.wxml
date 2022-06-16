@@ -1,3 +1,0 @@
-<view class="container">
-  <i-navbar loading title="首页" sub="测试"></i-navbar>
-</view>

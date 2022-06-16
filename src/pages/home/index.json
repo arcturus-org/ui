@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "ice-navbar": "../../components/navbar/index",
+    "ice-pages": "../../components/pages/index",
+    "ice-page": "../../components/page/index",
+    "ice-tabbar": "../../components/tabbar/index",
+    "ice-tabbar-item": "../../components/tabbar-item/index",
+    "ice-icon": "../../components/icon/index"
+  }
+}
