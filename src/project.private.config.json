@@ -3,5 +3,6 @@
     "projectname": "src",
     "setting": {
         "compileHotReLoad": true
-    }
+    },
+    "libVersion": "2.24.6"
 }
