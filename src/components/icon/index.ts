@@ -7,6 +7,9 @@ Component({
       value: 20,
     },
   },
+  data: {
+    prefix: '',
+  },
   lifetimes: {
     ready() {
       if (this.data.icon === '') {

@@ -1,6 +1,7 @@
 @import './style/stylesheet.wxss';
 @import './style/font-awesome.wxss';
 @import './style/brands.wxss';
+@import './style/remixicon.wxss';
 
 .i-icon__container {
   display: flex;
