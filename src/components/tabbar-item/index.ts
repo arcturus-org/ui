@@ -11,6 +11,7 @@ Component({
   },
   data: {
     active: false,
+    width: 0,
   },
   methods: {
     // tab 激活事件
@@ -41,6 +42,10 @@ Component({
           active: false,
         });
       }
+    },
+    // 设置组件宽度
+    setWidth(width: number) {
+      this.setData({ width });
     },
   },
 });

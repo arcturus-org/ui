@@ -64,6 +64,17 @@ Component({
         // 父组件准备完成, 把相关子组件激活
         nodes[this.data.selected].activate();
       }
+
+      this.createSelectorQuery()
+        .in(this)
+        .select('.i-tabbar__container')
+        .fields({ node: true, size: true })
+        .exec((res) => {
+          const width = (res[0].width - 50) / nodes.length;
+          nodes.forEach((node) => {
+            node.setWidth(width);
+          });
+        });
     },
   },
   observers: {
