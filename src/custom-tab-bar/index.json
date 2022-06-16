@@ -1,0 +1,7 @@
+{
+    "component": true,
+    "usingComponents": {
+        "ice-tabbar": "../components/tabbar/index",
+        "ice-tabbar-item": "../components/tabbar-item/index"
+    }
+}

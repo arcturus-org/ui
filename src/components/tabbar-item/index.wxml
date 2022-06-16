@@ -1,22 +1,20 @@
-<view
-  bindtap="activate"
-  class="i-tabbar-item__container"
-  style="width: {{width}}px"
->
-  <!-- 内置图标 -->
-  <ice-icon
-    wx:if="{{activeIcon && inactiveIcon}}"
-    icon="{{active ? activeIcon : inactiveIcon}}"
-    size="{{iconSize}}"
-  ></ice-icon>
+<view bindtap="activate" class="i-tabbar-item__container">
+  <view>
+    <!-- 内置图标 -->
+    <ice-icon
+      wx:if="{{activeIcon && inactiveIcon}}"
+      icon="{{active ? activeIcon : inactiveIcon}}"
+      size="{{iconSize}}"
+    ></ice-icon>
 
-  <!-- 自定义图标 -->
-  <block wx:else>
-    <slot wx:if="{{active}}" name="inactive_icon"></slot>
-    <slot wx:else name="active_icon"></slot>
-  </block>
+    <!-- 自定义图标 -->
+    <block wx:else>
+      <slot wx:if="{{active}}" name="inactive_icon"></slot>
+      <slot wx:else name="active_icon"></slot>
+    </block>
 
-  <text class="i-tabbar-item__text" wx:if="{{name}}"
-    >{{name}}</text
-  >
+    <text class="i-tabbar-item__text" wx:if="{{name}}">
+      {{name}}
+    </text>
+  </view>
 </view>

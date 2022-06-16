@@ -2,13 +2,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  bottom: 0;
   z-index: 999;
-  padding: 15px 25px;
-  padding-bottom: calc(15px + env(safe-area-inset-bottom));
-  box-sizing: border-box;
+  padding-bottom: env(safe-area-inset-bottom);
 
   &.shadow {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
@@ -16,5 +11,11 @@
 
   &.blur {
     backdrop-filter: blur(30px);
+  }
+
+  &.fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
   }
 }

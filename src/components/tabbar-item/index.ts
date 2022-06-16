@@ -18,15 +18,15 @@ Component({
     width: 0,
   },
   methods: {
-    // tab 激活事件
     activate() {
-      //  避免反复点击触发多次 setData
-      if (!this.data.active) {
+      const { active } = this.data;
+
+      // 防止反复点击
+      if (!active) {
         this.setData({
           active: true,
         });
 
-        // 父组件一般只有一个
         const parent = this.getRelationNodes(
           '../tabbar/index'
         )[0];
@@ -39,13 +39,11 @@ Component({
         }
       }
     },
-    // tab 取消激活事件
+    // 取消激活
     deActivate() {
-      if (this.data.active) {
-        this.setData({
-          active: false,
-        });
-      }
+      this.setData({
+        active: false,
+      });
     },
     // 设置组件宽度
     setWidth(width: number) {

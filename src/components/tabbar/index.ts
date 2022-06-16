@@ -7,16 +7,8 @@ Component({
     '../tabbar-item/index': {
       type: 'child',
     },
-    '../pages/index': {
-      type: 'parent',
-    },
   },
   properties: {
-    selected: {
-      // 选中的 tab
-      type: Number,
-      value: 0,
-    },
     shadow: {
       // 是否有阴影
       type: Boolean,
@@ -31,10 +23,19 @@ Component({
       type: String,
       value: 'rgba(255, 255, 255, 0.8)',
     },
+    selected: {
+      type: Number,
+      value: 0,
+    },
+    fixed: {
+      // 是否固定在底部
+      type: Boolean,
+      value: true,
+    },
   },
   data: {
-    children: <any>[],
     current: 0,
+    children: [],
   },
   methods: {
     switchTab(idx: number): void {
@@ -56,31 +57,18 @@ Component({
       );
 
       this.setData({
-        children: nodes,
+        children: nodes, // 保存子节点
         current: this.data.selected,
       });
 
-      if (nodes.length > 0) {
-        // 父组件准备完成, 把相关子组件激活
-        nodes[this.data.selected].activate();
-      }
-
-      this.createSelectorQuery()
-        .in(this)
-        .select('.i-tabbar__container')
-        .fields({ node: true, size: true })
-        .exec((res) => {
-          const width = (res[0].width - 50) / nodes.length;
-          nodes.forEach((node) => {
-            node.setWidth(width);
-          });
-        });
+      // 父组件准备完成, 把相关子组件激活
+      nodes[this.data.selected].activate();
     },
   },
   observers: {
     selected: function (n: number) {
       if (this.data.children.length > 0) {
-        this.data.children[this.data.current].deActivate();
+        this.data.children[this.data.current].deActivate(); // 取消激活当前子节点
         this.data.children[n].activate();
       }
 

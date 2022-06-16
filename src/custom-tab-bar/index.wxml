@@ -1,0 +1,11 @@
+<ice-tabbar
+  selected="{{ selected }}"
+  bind:change="onChange"
+>
+  <ice-tabbar-item
+    wx:for="{{list}}"
+    wx:key="index"
+    active-icon="{{item.activeIcon}}"
+    inactive-icon="{{item.inactiveIcon}}"
+  ></ice-tabbar-item>
+</ice-tabbar>
