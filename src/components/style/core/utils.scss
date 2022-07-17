@@ -1,0 +1,42 @@
+// string
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    $start: str-slice($string, 1, $index - 1);
+    $end: str-replace(
+      str-slice($string, $index + str-length($search)),
+      $search,
+      $replace
+    ); // 从剩余部分继续查找 search
+
+    @return $start + $replace + $end;
+  }
+
+  @return $string;
+}
+
+// 例如 $name: 'sm'
+// 则先将 $selector: '.col<name>-<i>' 替换为 '.col-sm-<i>'
+// 再替换成 '.col-sm-1'
+@function str-fr($selector, $name, $i: '') {
+  @return str-replace(
+    str-replace($selector, '<name>', $name),
+    '<i>',
+    $i
+  );
+}
+
+// 如果 $noProc: true, 则直接使用 $name: 'sm' 和 $i: 1 替换 '.col<name>-<i>'
+@function str-fe($selector, $name, $noProc, $i: '') {
+  @if $noProc {
+    @return str-fr($selector, $name, $i);
+  }
+
+  // 否则把 '.col<name>-<i>' 替换成 '.col-' 和 
+  @return join(
+    str-fr($selector, '', $i),
+    str-fr($selector, $name, $i),
+    $separator: comma
+  );
+}

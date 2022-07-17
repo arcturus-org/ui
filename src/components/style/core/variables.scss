@@ -1,0 +1,82 @@
+$breakpoint-xs: 599px;
+$breakpoint-sm: 1023px;
+$breakpoint-md: 1439px;
+$breakpoint-lg: 1919px;
+
+// size.scss
+$space-base: 16px;
+$space-x-base: $space-base;
+$space-y-base: $space-base;
+
+$space-none: (
+  x: 0,
+  y: 0,
+);
+
+$space-xs: (
+  x: $space-x-base * 0.25,
+  y: $space-y-base * 0.25,
+);
+
+$space-sm: (
+  x: $space-x-base * 0.5,
+  y: $space-y-base * 0.5,
+);
+
+$space-md: (
+  x: $space-x-base,
+  y: $space-y-base,
+);
+
+$space-lg: (
+  x: $space-x-base * 1.5,
+  y: $space-y-base * 1.5,
+);
+
+$space-xl: (
+  x: $space-x-base * 3,
+  y: $space-y-base * 3,
+);
+
+$spaces: (
+  'none': $space-none,
+  'xs': $space-xs,
+  'sm': $space-sm,
+  'md': $space-md,
+  'lg': $space-lg,
+  'xl': $space-xl,
+);
+
+$sizes: (
+  'xs': 0,
+  'sm': $breakpoint-xs + 1,
+  'md': $breakpoint-sm + 1,
+  'lg': $breakpoint-md + 1,
+  'xl': $breakpoint-lg + 1,
+);
+
+$z-fixed-drawer: 3000;
+$z-fullscreen: 6000;
+$z-notify: 9500;
+$z-max: 9998;
+
+$animate-duration: 0.3s;
+$animate-delay: 0.3s;
+$animate-repeat: 1;
+
+// flex.scss
+$flex-cols: 12;
+$flex-gutter-xs: $space-base * 0.25;
+$flex-gutter-sm: $space-base * 0.5;
+$flex-gutter-md: $space-base;
+$flex-gutter-lg: $space-base * 1.5;
+$flex-gutter-xl: $space-base * 3;
+
+$flex-gutter: (
+  'none': 0,
+  'xs': $flex-gutter-xs,
+  'sm': $flex-gutter-sm,
+  'md': $flex-gutter-md,
+  'lg': $flex-gutter-lg,
+  'xl': $flex-gutter-xl,
+);

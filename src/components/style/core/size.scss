@@ -1,0 +1,114 @@
+@import 'variables.scss';
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+@each $space, $value in $spaces {
+  @if $space ==
+    'none' or
+    map-get($value, 'y') ==
+    map-get($value, 'x')
+  {
+    .q-pa-#{$space} {
+      padding: map-get($value, 'y');
+    }
+  } @else {
+    .q-pa-#{$space} {
+      padding: map-get($value, 'y'), map-get($value, 'x');
+    }
+  }
+
+  .q-pl-#{$space} {
+    padding-left: map-get($value, 'x');
+  }
+
+  .q-pr-#{$space} {
+    padding-right: map-get($value, 'x');
+  }
+
+  .q-pt-#{$space} {
+    padding-top: map-get($value, 'y');
+  }
+
+  .q-pb-#{$space} {
+    padding-bottom: map-get($value, 'y');
+  }
+
+  .q-px-#{$space} {
+    padding-left: map-get($value, 'x');
+    padding-right: map-get($value, 'x');
+  }
+
+  .q-py-#{$space} {
+    padding-top: map-get($value, 'y');
+    padding-bottom: map-get($value, 'y');
+  }
+
+  @if $space ==
+    'none' or
+    map-get($value, 'y') ==
+    map-get($value, 'x')
+  {
+    .q-ma-#{$space} {
+      margin: map-get($value, 'y');
+    }
+  } @else {
+    .q-ma-#{$space} {
+      margin: map-get($value, 'y'), map-get($value, 'x');
+    }
+  }
+
+  .q-ml-#{$space} {
+    margin-left: map-get($value, 'x');
+  }
+
+  .q-mr-#{$space} {
+    margin-right: map-get($value, 'x');
+  }
+
+  .q-mt-#{$space} {
+    margin-top: map-get($value, 'y');
+  }
+
+  .q-mb-#{$space} {
+    margin-bottom: map-get($value, 'y');
+  }
+
+  .q-mx-#{$space} {
+    margin-left: map-get($value, 'x');
+    margin-right: map-get($value, 'x');
+  }
+
+  .q-my-#{$space} {
+    margin-top: map-get($value, 'y');
+    margin-bottom: map-get($value, 'y');
+  }
+
+  .q-mt-auto,
+  .q-my-auto {
+    margin-top: auto;
+  }
+
+  .q-ml-auto {
+    margin-left: auto;
+  }
+
+  .q-mb-auto,
+  .q-my-auto {
+    margin-bottom: auto;
+  }
+
+  .q-mr-auto {
+    margin-right: auto;
+  }
+
+  .q-mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
