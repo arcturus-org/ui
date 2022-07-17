@@ -239,16 +239,10 @@
   .q-gutter {
     &-x-#{$name} {
       margin-left: -$size;
-      > * {
-        margin-left: $size;
-      }
     }
 
     &-y-#{$name} {
       margin-top: -$size;
-      > * {
-        margin-top: $size;
-      }
     }
 
     &-#{$name} {
@@ -260,16 +254,10 @@
   .q-col-gutter {
     &-x-#{$name} {
       margin-left: -$size;
-      > * {
-        padding-left: $size;
-      }
     }
 
     &-y-#{$name} {
       margin-top: -$size;
-      > * {
-        padding-top: $size;
-      }
     }
     
     &-#{$name} {
