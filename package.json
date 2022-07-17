@@ -21,7 +21,6 @@
     "@babel/runtime": "^7.11.2",
     "@types/jest": "^26.0.9",
     "@types/wechat-miniprogram": "^2.11.0",
-    "miniprogram-api-typings": "^3.4.6",
     "miniprogram-simulate": "^1.2.7",
     "typescript": "^3.9.7"
   },

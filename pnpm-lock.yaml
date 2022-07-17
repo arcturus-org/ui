@@ -9,7 +9,6 @@ specifiers:
   '@mpflow/service': ^0.0.33
   '@types/jest': ^26.0.9
   '@types/wechat-miniprogram': ^2.11.0
-  miniprogram-api-typings: ^3.4.6
   miniprogram-simulate: ^1.2.7
   sass: ^1.52.3
   typescript: ^3.9.7
@@ -26,7 +25,6 @@ devDependencies:
   '@babel/runtime': 7.18.3
   '@types/jest': 26.0.24
   '@types/wechat-miniprogram': 2.11.0
-  miniprogram-api-typings: 3.4.6
   miniprogram-simulate: 1.5.7
   typescript: 3.9.10
 
