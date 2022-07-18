@@ -10,4 +10,19 @@
     <ice-separator></ice-separator>
     <view class="occupy-block"></view>
   </ice-card>
+  <ice-card>
+    <ice-card-section>
+      Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit, sed do eiusmod tempor incididunt ut labore et
+      dolore magna aliqua. Ut enim ad minim veniam, quis
+      nostrud exercitation ullamco laboris nisi ut aliquip
+      ex ea commodo consequat.
+    </ice-card-section>
+  </ice-card>
+  <ice-card>
+    <ice-card-actions>
+      <button class="i-mx-sm i-my-none">取消</button>
+      <button class="i-mx-sm i-my-none">确认</button>
+    </ice-card-actions>
+  </ice-card>
 </view>
