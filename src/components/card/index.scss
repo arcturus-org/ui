@@ -1,14 +1,24 @@
-.i-card__container {
-  padding: 5px;
+@import '../style/index.scss';
 
-  .i-card-item__container {
-    border-radius: 5px;
-    padding: 10px;
-    // 当背景色具有透明度时, 进行毛玻璃处理
-    backdrop-filter: blur(10px);
+.i-card__container {
+  border-radius: 4px;
+  overflow: hidden;
+
+  &.outlined {
+    border: 1px solid rgba(0, 0, 0, 0.12);
   }
 
-  &.i-card-outlined {
-    border: 1px solid rgba(0, 0, 0, 0.12);
+  @media (prefers-color-scheme: light) {
+    & {
+      background-color: $white;
+      color: $dark;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    & {
+      background-color: $dark;
+      color: $white;
+    }
   }
 }

@@ -1,19 +1,16 @@
 Component({
-  externalClasses: ['i-card-class'],
   relations: {
-    '../i-header/index': {
+    './card-section/index': {
+      type: 'child',
+    },
+    './card-actions/index': {
       type: 'child',
     },
   },
   properties: {
-    outlined: {
+    bordered: {
       type: Boolean,
       value: false,
     },
-    backgroundColor: {
-      type: String,
-      value: '#fff',
-    },
   },
-  methods: {},
 });
