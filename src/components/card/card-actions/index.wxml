@@ -1,0 +1,6 @@
+<view wx:if="{{vertical}}" class="i-pa-sm column justify-{{a}}">
+  <slot></slot>
+</view>
+<view wx:else class="i-pa-sm row justify-{{a}}">
+  <slot></slot>
+</view>

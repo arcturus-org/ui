@@ -1,0 +1,3 @@
+<view class="i-pa-sm text-body1">
+  <slot></slot>
+</view>
