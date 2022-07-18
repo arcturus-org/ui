@@ -1,1 +1,26 @@
-<view class="container">首页</view>
+<ice-navbar title="首页"></ice-navbar>
+<view class="container">
+  <ice-card>
+    <ice-header title="布局组件"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell
+      wx:for="{{layout}}"
+      wx:key="index"
+      label="{{item.label}}"
+      path="{{item.path}}"
+      is-link
+    ></ice-cell>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="展示组件"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell
+      wx:for="{{display}}"
+      wx:key="index"
+      label="{{item.label}}"
+      path="{{item.path}}"
+      is-link
+    ></ice-cell>
+  </ice-card>
+</view>
