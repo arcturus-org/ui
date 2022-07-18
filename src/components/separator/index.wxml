@@ -1,0 +1,1 @@
+<view class="i-separator {{inset ? 'inset' : ''}} {{vertical ? 'vertical' : 'horizontal'}}"></view>

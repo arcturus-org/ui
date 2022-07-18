@@ -1,0 +1,30 @@
+@import '../style/index.scss';
+
+.i-separator {
+  transition: background 0.3s, opacity 0.3s;
+  margin: 0;
+
+  @media (prefers-color-scheme: light) {
+    background: rgba(0, 0, 0, 0.12);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: rgba(255, 255, 255, 0.28);
+  }
+
+  &.horizontal {
+    height: 1px;
+
+    &.inset {
+      margin: 0 $space-base;
+    }
+  }
+
+  &.vertical {
+    width: 1px;
+
+    &.inset {
+      margin: $space-base 0;
+    }
+  }
+}
