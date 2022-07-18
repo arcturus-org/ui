@@ -24,15 +24,19 @@
           max-height: 100%;
         }
       }
+
       & {
         flex: 10000 1 0%;
       }
+
       &-auto {
         flex: 0 0 auto;
       }
+
       &-grow {
         flex: 1 0 auto;
       }
+
       &-shrink {
         flex: 0 1 autos;
       }
@@ -41,7 +45,7 @@
     // $flex-cols: 12
     @for $i from 0 through $flex-cols {
       $ic: quote('' + $i);
-      
+
       #{str-fe(
           '.col<name>-<i>',
           $name,
@@ -51,27 +55,22 @@
         @extend .col#{$name}-auto;
       }
 
-      .row
+      .row {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
-        height: auto;
-        width: toFixed(percentage($i / $flex-cols), 10000);
+          height: auto;
+          width: percentage($i / $flex-cols);
+        }
       }
 
       @if $i != 0 or $name != '' {
         #{str-fe('> .offset<name>-<i>', $name, $noProcNotZero, $ic)} {
-          margin-left: toFixed(
-            percentage($i / $flex-cols),
-            10000
-          );
+          margin-left: percentage($i / $flex-cols);
         }
       }
 
       .column {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
-          height: toFixed(
-            percentage($i / $flex-cols),
-            10000
-          );
+          height: percentage($i / $flex-cols);
           width: auto;
         }
       }
@@ -259,7 +258,7 @@
     &-y-#{$name} {
       margin-top: -$size;
     }
-    
+
     &-#{$name} {
       @extend .i-col-gutter-x-#{$name};
       @extend .i-col-gutter-y-#{$name};
