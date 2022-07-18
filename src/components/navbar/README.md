@@ -35,3 +35,10 @@
 <!-- 防止导航栏遮挡底下元素 -->
 <ice-navbar occupy></ice-navbar>
 ```
+
+### 返回图标
+```html
+<ice-navbar back></ice-navbar>
+```
+
+> 如果定义 left-icon 优先使用 left-icon

@@ -1,4 +1,4 @@
-import getNavInfo from '../utils/navInfo';
+import useNavInfo from '../utils/navInfo';
 
 Component({
   properties: {
@@ -9,6 +9,10 @@ Component({
     },
     loading: {
       // 是否处于 loading 状态
+      type: Boolean,
+      value: false,
+    },
+    back: {
       type: Boolean,
       value: false,
     },
@@ -31,7 +35,8 @@ Component({
   lifetimes: {
     ready() {
       const { navHeight, statusBarHeight, capsuleLeft } =
-        getNavInfo();
+        useNavInfo();
+
       this.setData({
         navHeight,
         statusBarHeight,
@@ -41,7 +46,15 @@ Component({
   },
   methods: {
     click(e: any) {
-      this.triggerEvent('click', e);
+      if (this.data.back) {
+        wx.navigateBack({
+          delta: 1,
+        }).catch((err) => {
+          console.error(`返回错误, 原因: ${err.errMsg}`);
+        });
+      } else {
+        this.triggerEvent('click', e);
+      }
     },
   },
 });
