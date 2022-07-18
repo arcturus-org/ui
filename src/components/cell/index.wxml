@@ -1,0 +1,15 @@
+<view class="i-px-sm i-py-md row justify-between" hover-class="{{isLink ? 'i-cell-hover' : 'none'}}" bindtap="to">
+    <view class="row items-center">
+        <block wx:if="{{label}}">
+            <ice-icon wx-if="{{leftIcon}}" icon="{{leftIcon}}"></ice-icon>
+            <view>{{label}}</view>
+        </block>
+        <block wx:else>
+            <slot name="label"></slot>
+        </block>
+    </view>
+    <view class="row items-center">
+        <view wx-if="{{value}}">{{value}}</view>
+        <ice-icon wx-if="{{isLink || rightIcon}}" icon="{{isLink ? 'ri ri-arrow-right-s-line' : rightIcon}}"></ice-icon>
+    </view>
+</view>

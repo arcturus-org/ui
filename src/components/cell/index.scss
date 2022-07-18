@@ -1,0 +1,17 @@
+@import '../style/index.scss';
+
+.i-cell-hover {
+  opacity: 0.9;
+}
+
+@media (prefers-color-scheme: light) {
+  .i-cell-hover {
+    background: $grey-1;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .i-cell-hover {
+    background: $grey-9;
+  }
+}
