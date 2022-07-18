@@ -1,1 +1,54 @@
-<view class="i-separator {{inset ? 'inset' : ''}} {{vertical ? 'vertical' : 'horizontal'}}"></view>
+<block wx:if="{{label}}">
+  <!-- 有文本时使用栅格 -->
+  <view class="row items-center" id="container">
+    <view
+      class="i-separator col-{{o}} {{vertical ? 'vertical' : 'horizontal'}}"
+    ></view>
+    <view class="col-2 text-center">{{label}}</view>
+    <view
+      class="i-separator col-{{10 - o}} {{vertical ? 'vertical' : 'horizontal'}}"
+    ></view>
+  </view>
+</block>
+<block wx:else>
+  <!-- 没有文本就渲染一条线即可 -->
+  <view class="box" style="height: 100%;">
+    <!-- 自定义内缩距离 -->
+    <block wx:if="{{spaced}}">
+      <!-- 垂直分割线 -->
+      <view
+        wx:if="{{vertical}}"
+        class="box"
+        style="padding: {{spaced ? spaced : ''}} 0;height: 100%;"
+      >
+        <view class="i-separator vertical"></view>
+      </view>
+
+      <!-- 水平分割线 -->
+      <view
+        wx:else
+        style="margin: 0 {{spaced}}"
+        class="i-separator horizontal"
+      >
+      </view>
+    </block>
+
+    <!-- 内置内缩距离 -->
+    <block wx:else>
+      <view
+        wx:if="{{vertical}}"
+        class="box"
+        style="padding: {{inset ? 8 : 0}}px 0;height: 100%;"
+      >
+        <view class="i-separator vertical"></view>
+      </view>
+
+      <view
+        wx:else
+        class="i-separator horizontal"
+        style="margin: 0 {{inset ? 8 : 0}}px;"
+      >
+      </view>
+    </block>
+  </view>
+</block>
