@@ -33,7 +33,7 @@ Component({
     statusBarHeight: 0, // 状态栏高度
   },
   lifetimes: {
-    ready() {
+    attached() {
       const { navHeight, statusBarHeight, capsuleLeft } =
         useNavInfo();
 
