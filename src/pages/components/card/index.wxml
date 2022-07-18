@@ -1,13 +1,13 @@
+<ice-navbar title="卡片" back></ice-navbar>
 <view class="container">
-    <ice-navbar title="卡片" back></ice-navbar>
-    <ice-card>
-        <ice-header title="标题"></ice-header>
-        <ice-separator></ice-separator>
-        <view class="occupy-block"></view>
-    </ice-card>
-    <ice-card>
-        <ice-header title="标题" sub="副标题"></ice-header>
-        <ice-separator></ice-separator>
-        <view class="occupy-block"></view>
-    </ice-card>
+  <ice-card>
+    <ice-header title="标题"></ice-header>
+    <ice-separator></ice-separator>
+    <view class="occupy-block"></view>
+  </ice-card>
+  <ice-card>
+    <ice-header title="标题" sub="副标题"></ice-header>
+    <ice-separator></ice-separator>
+    <view class="occupy-block"></view>
+  </ice-card>
 </view>
