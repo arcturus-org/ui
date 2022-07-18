@@ -234,9 +234,9 @@
   @extend .justify-center;
 }
 
-// 生成类似 .q-gutter-x-xs 的选择器
+// 生成类似 .i-gutter-x-xs 的选择器
 @each $name, $size in $flex-gutter {
-  .q-gutter {
+  .i-gutter {
     &-x-#{$name} {
       margin-left: -$size;
     }
@@ -246,12 +246,12 @@
     }
 
     &-#{$name} {
-      @extend .q-gutter-x-#{$name};
-      @extend .q-gutter-y-#{$name};
+      @extend .i-gutter-x-#{$name};
+      @extend .i-gutter-y-#{$name};
     }
   }
 
-  .q-col-gutter {
+  .i-col-gutter {
     &-x-#{$name} {
       margin-left: -$size;
     }
@@ -261,8 +261,8 @@
     }
     
     &-#{$name} {
-      @extend .q-col-gutter-x-#{$name};
-      @extend .q-col-gutter-y-#{$name};
+      @extend .i-col-gutter-x-#{$name};
+      @extend .i-col-gutter-y-#{$name};
     }
   }
 }

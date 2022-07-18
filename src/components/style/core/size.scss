@@ -14,37 +14,37 @@
     map-get($value, 'y') ==
     map-get($value, 'x')
   {
-    .q-pa-#{$space} {
+    .i-pa-#{$space} {
       padding: map-get($value, 'y');
     }
   } @else {
-    .q-pa-#{$space} {
+    .i-pa-#{$space} {
       padding: map-get($value, 'y'), map-get($value, 'x');
     }
   }
 
-  .q-pl-#{$space} {
+  .i-pl-#{$space} {
     padding-left: map-get($value, 'x');
   }
 
-  .q-pr-#{$space} {
+  .i-pr-#{$space} {
     padding-right: map-get($value, 'x');
   }
 
-  .q-pt-#{$space} {
+  .i-pt-#{$space} {
     padding-top: map-get($value, 'y');
   }
 
-  .q-pb-#{$space} {
+  .i-pb-#{$space} {
     padding-bottom: map-get($value, 'y');
   }
 
-  .q-px-#{$space} {
+  .i-px-#{$space} {
     padding-left: map-get($value, 'x');
     padding-right: map-get($value, 'x');
   }
 
-  .q-py-#{$space} {
+  .i-py-#{$space} {
     padding-top: map-get($value, 'y');
     padding-bottom: map-get($value, 'y');
   }
@@ -54,60 +54,60 @@
     map-get($value, 'y') ==
     map-get($value, 'x')
   {
-    .q-ma-#{$space} {
+    .i-ma-#{$space} {
       margin: map-get($value, 'y');
     }
   } @else {
-    .q-ma-#{$space} {
+    .i-ma-#{$space} {
       margin: map-get($value, 'y'), map-get($value, 'x');
     }
   }
 
-  .q-ml-#{$space} {
+  .i-ml-#{$space} {
     margin-left: map-get($value, 'x');
   }
 
-  .q-mr-#{$space} {
+  .i-mr-#{$space} {
     margin-right: map-get($value, 'x');
   }
 
-  .q-mt-#{$space} {
+  .i-mt-#{$space} {
     margin-top: map-get($value, 'y');
   }
 
-  .q-mb-#{$space} {
+  .i-mb-#{$space} {
     margin-bottom: map-get($value, 'y');
   }
 
-  .q-mx-#{$space} {
+  .i-mx-#{$space} {
     margin-left: map-get($value, 'x');
     margin-right: map-get($value, 'x');
   }
 
-  .q-my-#{$space} {
+  .i-my-#{$space} {
     margin-top: map-get($value, 'y');
     margin-bottom: map-get($value, 'y');
   }
 
-  .q-mt-auto,
-  .q-my-auto {
+  .i-mt-auto,
+  .i-my-auto {
     margin-top: auto;
   }
 
-  .q-ml-auto {
+  .i-ml-auto {
     margin-left: auto;
   }
 
-  .q-mb-auto,
-  .q-my-auto {
+  .i-mb-auto,
+  .i-my-auto {
     margin-bottom: auto;
   }
 
-  .q-mr-auto {
+  .i-mr-auto {
     margin-right: auto;
   }
 
-  .q-mx-auto {
+  .i-mx-auto {
     margin-left: auto;
     margin-right: auto;
   }
