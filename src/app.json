@@ -2,7 +2,9 @@
   "pages": [
     "pages/home/index",
     "pages/about/index",
-    "pages/components/card/index"
+    "pages/components/card/index",
+    "pages/components/separator/index",
+    "pages/components/row/index"
   ],
   "tabBar": {
     "custom": true,
