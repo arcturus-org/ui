@@ -15,7 +15,7 @@ Component({
     ],
   },
   methods: {
-    onChange(e) {
+    onChange(e: CustomEvent) {
       const { idx } = e.detail;
 
       this.setData({ selected: idx });
