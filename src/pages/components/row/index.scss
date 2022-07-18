@@ -1,0 +1,14 @@
+@import '../../../components/style/core/colors.scss';
+
+.b {
+  height: 50px;
+  border-radius: 4px;
+
+  @media (prefers-color-scheme: light) {
+    background: $white;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: $light-blue-10;
+  }
+}

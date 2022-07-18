@@ -1,0 +1,80 @@
+<ice-navbar title="栅格" back></ice-navbar>
+
+<view class="container">
+  <view class="text-bold i-my-md">断点</view>
+  <view class="row items-center">
+    <view
+      wx:for="{{2}}"
+      wx:key="item"
+      class="box col-6 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-6
+      </view>
+    </view>
+    <view
+      wx:for="{{3}}"
+      wx:key="item"
+      class="box col-4 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-4
+      </view>
+    </view>
+    <view
+      wx:for="{{4}}"
+      wx:key="item"
+      class="box col-3 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-3
+      </view>
+    </view>
+    <view class="col-2 box i-px-xs i-mb-sm">
+      <view class="b row items-center justify-center">
+        col-2
+      </view>
+    </view>
+    <view class="col-10 box i-px-xs i-mb-sm">
+      <view class="b row items-center justify-center">
+        col-10
+      </view>
+    </view>
+  </view>
+  <view class="text-bold i-my-md">弹性盒子</view>
+  <view class="row items-center justify-start">
+    <view
+      wx:for="{{2}}"
+      wx:key="item"
+      class="box col-4 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-4
+      </view>
+    </view>
+  </view>
+
+  <view class="row items-center justify-center">
+    <view
+      wx:for="{{2}}"
+      wx:key="item"
+      class="box col-4 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-4
+      </view>
+    </view>
+  </view>
+
+  <view class="row items-center justify-end">
+    <view
+      wx:for="{{2}}"
+      wx:key="item"
+      class="box col-4 i-px-xs i-mb-sm"
+    >
+      <view class="b row items-center justify-center">
+        col-4
+      </view>
+    </view>
+  </view>
+</view>
