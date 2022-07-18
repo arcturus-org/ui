@@ -1,0 +1,60 @@
+<view class="container">
+  <ice-navbar title="分割线" back></ice-navbar>
+  <view class="i-ma-lg">
+    <view class="text-bold i-my-md">普通分割线</view>
+    <ice-separator></ice-separator>
+  </view>
+  <view class="i-ma-lg">
+    <view class="text-bold i-my-md">内缩分割线</view>
+    <ice-separator inset></ice-separator>
+  </view>
+  <view class="i-ma-lg">
+    <view class="text-bold i-my-md">
+      自定义内缩距离:
+      <span style="font-weight: normal;">{{spaced}}px</span>
+    </view>
+    <ice-separator
+      inset
+      spaced="{{spaced}}px"
+    ></ice-separator>
+    <slider
+      class="i-my-md"
+      bindchange="sliderChange"
+      block-size="16"
+    />
+  </view>
+  <view class="i-ma-lg">
+    <view class="text-bold i-my-md">文本</view>
+    <view class="i-mb-md">
+      <ice-separator
+        label="文本"
+        position="{{position}}"
+      ></ice-separator>
+    </view>
+    <radio-group
+      bindchange="radioChange"
+      class="row justify-between"
+    >
+      <label class="row" wx:for="{{pValue}}" wx:key="value">
+        <view class="i-mr-sm">
+          <radio
+            value="{{item.value}}"
+            checked="{{item.checked}}"
+          />
+        </view>
+        <view>{{item.value}}</view>
+      </label>
+    </radio-group>
+  </view>
+
+  <view class="i-ma-lg">
+    <view class="text-bold i-my-md">垂直分割线</view>
+    <view class="row" style="height: 50px">
+      <view class="col-4">这是左边</view>
+      <view class="col-1">
+        <ice-separator vertical></ice-separator>
+      </view>
+      <view class="col-7">这是右边</view>
+    </view>
+  </view>
+</view>
