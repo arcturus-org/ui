@@ -2,16 +2,6 @@ import getNavInfo from '../utils/navInfo';
 
 Component({
   properties: {
-    color: {
-      // 字体颜色
-      type: String,
-      value: '#000',
-    },
-    backgroundColor: {
-      // 背景色
-      type: String,
-      value: 'rgba(255, 255, 255, 0.8)', // 填入 transparent 设置成透明
-    },
     blur: {
       // 是否开启毛玻璃效果
       type: Boolean,

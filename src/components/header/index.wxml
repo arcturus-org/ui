@@ -1,16 +1,9 @@
-<view class="i-header__container i-header-class">
-  <view class="i-header__text {{center?'center':''}}">
+<view class="row justify-between items-center i-pa-sm">
+  <view class="column {{center?'items-center':''}}">
     <!-- 主标题 -->
-    <view
-      class="i-header__title ellipsis {{sub ? 'font_2' : 'font_1'}}"
-      wx:if="{{title}}"
-    >
-      {{title}}
-    </view>
+    <view class="text-h6 text-bold ellipsis" wx:if="{{title}}">{{title}}</view>
     <!-- 副标题 -->
-    <view class="i-header__sub ellipsis" wx:if="{{sub}}">
-      {{sub}}
-    </view>
+    <view class="subtitle ellipsis" wx:if="{{sub}}">{{sub}}</view>
   </view>
   <!-- 自定义插槽 -->
   <slot></slot>
