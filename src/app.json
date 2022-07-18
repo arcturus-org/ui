@@ -31,7 +31,8 @@
     "ice-icon": "components/icon/index",
     "ice-card": "components/card/index",
     "ice-card-section": "components/card/card-section/index",
-    "ice-card-actions": "components/card/card-actions/index"
+    "ice-card-actions": "components/card/card-actions/index",
+    "ice-button": "components/button/index"
   },
   "themeLocation": "theme.json",
   "darkmode": true,
