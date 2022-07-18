@@ -1,7 +1,7 @@
 <view class="row justify-between items-center i-pa-sm">
   <view class="column {{center?'items-center':''}}">
     <!-- 主标题 -->
-    <view class="text-h6 text-bold ellipsis" wx:if="{{title}}">{{title}}</view>
+    <view class="text-bold ellipsis" wx:if="{{title}}">{{title}}</view>
     <!-- 副标题 -->
     <view class="subtitle ellipsis" wx:if="{{sub}}">{{sub}}</view>
   </view>
