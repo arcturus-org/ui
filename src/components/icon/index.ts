@@ -11,7 +11,7 @@ Component({
     prefix: '',
   },
   lifetimes: {
-    ready() {
+    attached() {
       if (this.data.icon === '') {
         console.warn('图标类型不能为空');
       }
