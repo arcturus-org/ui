@@ -5,6 +5,8 @@
     "ice-header": "./header/index",
     "ice-tabbar": "./tabbar/index",
     "ice-tabbar-item": "./tabbar-item/index",
-    "ice-navbar": "./navbar/index"
+    "ice-navbar": "./navbar/index",
+    "ice-separator": "./separator/index",
+    "ice-cell": "./cell/index"
   }
 }
