@@ -4,5 +4,32 @@
     "setting": {
         "compileHotReLoad": true
     },
-    "libVersion": "2.25.0"
+    "libVersion": "2.25.0",
+    "condition": {
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "card",
+                    "pathName": "pages/components/card/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "separator",
+                    "pathName": "pages/components/separator/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "row",
+                    "pathName": "pages/components/row/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                }
+            ]
+        }
+    }
 }
