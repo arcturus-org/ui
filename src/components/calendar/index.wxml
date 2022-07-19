@@ -1,0 +1,87 @@
+<view class="t calendar__container">
+  <!-- 日历顶部 -->
+  <view
+    class="calendar__header i-pa-sm row justify-between items-center"
+  >
+    <!-- 显示当前时间 -->
+    <picker
+      value="{{selectDay.dateString}}"
+      bindchange="editDate"
+      mode="date"
+      fields="day"
+    >
+      <view class="row justify-center items-center">
+        <!-- 日期 -->
+        <view class="text-h4 text-bold">
+          {{selectDay.month}}月{{selectDay.day}}日
+        </view>
+        <view class="column i-pl-sm text-caption">
+          <!-- 年份 -->
+          <view>{{selectDay.year}}</view>
+          <!-- 农历 -->
+          <view>
+            {{selectDay.lunarday.monthStr +
+            selectDay.lunarday.dayStr}}
+          </view>
+        </view>
+      </view>
+    </picker>
+    <!-- 收起展开按钮 -->
+    <view
+      catchtap="openChange"
+      class="t row items-center"
+      style="transform: rotate({{open ? 0 : 180}}deg);"
+    >
+      <ice-icon icon="ri ri-arrow-up-s-line"></ice-icon>
+    </view>
+  </view>
+
+  <!-- 星期 -->
+  <view class="grid i-my-sm calendar__week">
+    <view
+      wx:for="{{week}}"
+      wx:key="week"
+      class="text-center"
+    >
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 日历主体 -->
+  <swiper
+    class="t swpier-box"
+    circular="{{true}}"
+    current="{{swiperIndex}}"
+    bindchange="swiperChange"
+    easing-function="easeInOutCubic"
+    style="height:{{open ? (dateList[swiperIndex].length / 7) * 50 : 50}}px;"
+  >
+    <swiper-item
+      wx:for="{{dateList}}"
+      wx:for-item="date"
+      wx:key="dateList"
+    >
+      <view
+        class="t grid calendar__body"
+        style="transform: translateY({{open ? 0 : -offset}}px); height:{{(dateList[swiperIndex].length / 7) * 50}}px;"
+      >
+        <view
+          wx:for="{{date}}"
+          wx:key="dateString"
+          class="row justify-center items-center"
+        >
+          <view
+            class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'other-month' )}}"
+            catchtap="selectChange"
+            data-select="{{item}}"
+          >
+            <view class="day">{{item.day}}</view>
+            <view class="lunar">
+              {{item.lunarday.dayStr}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

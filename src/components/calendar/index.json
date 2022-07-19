@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "ice-icon": "../icon/index"
+  }
+}

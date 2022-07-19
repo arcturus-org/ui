@@ -1,0 +1,90 @@
+@import '../style/index.scss';
+
+.t {
+  transition: all 0.5s ease;
+}
+
+.calendar__container {
+  border-radius: 4px;
+
+  @media (prefers-color-scheme: dark) {
+    background: $dark;
+
+    .calendar__header {
+      color: $grey-2;
+    }
+
+    .cur-month {
+      color: $white;
+    }
+
+    .other-month {
+      color: $grey-7;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    background: $white;
+
+    .calendar__header {
+      color: $grey-9;
+    }
+
+    .cur-month {
+      color: $dark;
+    }
+
+    .other-month {
+      color: $grey-5;
+    }
+  }
+
+  .calendar__week {
+    color: $grey-7;
+  }
+
+  .select {
+    color: $white;
+  }
+
+  .now {
+    color: $blue-5;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+}
+
+.swpier-box {
+  .date__item {
+    width: 40px;
+    height: 40px;
+
+    .lunar {
+      font-size: 10px;
+    }
+
+    .day {
+      font-size: 15px;
+    }
+  }
+
+  .select {
+    border-radius: 50%;
+    color: $white;
+    background: linear-gradient(-60deg, $blue-5, $blue-7);
+    animation: bg_animation 0.5s 0s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  }
+}
+
+@keyframes bg_animation {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
