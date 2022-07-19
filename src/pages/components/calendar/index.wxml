@@ -1,0 +1,4 @@
+<ice-navbar title="日历" back></ice-navbar>
+<view class="container">
+  <ice-calendar></ice-calendar>
+</view>

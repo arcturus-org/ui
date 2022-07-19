@@ -27,6 +27,10 @@ Page({
         label: '分割线',
         path: '/pages/components/separator/index',
       },
+      {
+        label: '日历',
+        path: '/pages/components/calendar/index',
+      },
     ],
   },
   onShow() {
