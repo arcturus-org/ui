@@ -20,16 +20,16 @@ npm run build
 ```
 
 ## 计划
-[] calendar
-[x] tabbar
-[x] navbar
-[] notify/alert
-[] pages/page-item
-[x] separator
-[x] search
-[x] icon
-[] progress
-[x] cell
-[] button
-[x] drawer
-[x] card
+[ ] calendar  
+[x] tabbar  
+[x] navbar  
+[ ] notify/alert  
+[ ] pages/page-item  
+[x] separator  
+[x] search  
+[x] icon  
+[ ] progress  
+[x] cell  
+[ ] button  
+[x] drawer  
+[x] card  
