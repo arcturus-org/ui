@@ -155,20 +155,16 @@ Component({
             selectDay,
           });
         } else
-          open
-            ? this.setData({
-                selectDay,
-                offset: getOffsetList(
-                  open,
-                  index,
-                  year,
-                  month,
-                  day
-                ),
-              })
-            : this.setData({
-                selectDay,
-              });
+          this.setData({
+            selectDay,
+            offset: getOffsetList(
+              open,
+              index,
+              year,
+              month,
+              day
+            ),
+          });
 
         if (y !== year)
           this.triggerEvent('yearChange', selectDay);
