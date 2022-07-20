@@ -4,6 +4,7 @@ import formatTime, {
   getFullDateList,
   getOffset,
   getOffsetList,
+  get7DayDateList,
 } from './time';
 import { solarToLunar } from './lunar';
 
@@ -39,32 +40,6 @@ Component({
 
       // 使用 pick 选择的话, 缓存就无效了, 需要重新初始化
       this.setDate(year, month, day, true);
-    },
-
-    // 判断需要左滑还是右滑
-    swiperDirection(
-      year: number,
-      month: number,
-      day: number
-    ) {
-      const {
-        selectDay: { year: y, month: m, day: d }, // 当前日期
-        open,
-      } = this.data;
-
-      if (year < y) return -1;
-      else if (year > y) return 1;
-      else if (month < m) return -1;
-      else if (month > m) return 1;
-      else if (!open) {
-        if (day < d - 6) {
-          return -1;
-        } else if (day > d + 6) {
-          return 1;
-        }
-      }
-
-      return 0;
     },
 
     setDate(
@@ -106,19 +81,26 @@ Component({
       if (init) {
         // 进行初始化
         this.setData({
-          dateList: getFullDateList(
-            selectDay.year,
-            selectDay.month
-          ),
+          dateList: open
+            ? getFullDateList(
+                selectDay.year,
+                selectDay.month
+              )
+            : get7DayDateList(
+                index,
+                selectDay.year,
+                selectDay.month,
+                selectDay.day
+              ),
           selectDay,
           offset: getOffsetList(
-            1,
+            open,
+            index,
             selectDay.year,
             selectDay.month,
             selectDay.day
           ),
         });
-
         // 初始化操作, 三个都要执行
         this.triggerEvent('yearChange', selectDay);
         this.triggerEvent('monthChange', selectDay);
@@ -177,6 +159,7 @@ Component({
             ? this.setData({
                 selectDay,
                 offset: getOffsetList(
+                  open,
                   index,
                   year,
                   month,
@@ -299,21 +282,18 @@ Component({
       } = e;
 
       const {
-        selectDay: { year: y, month: m}, // 当前日期
-        open,
+        selectDay: { year: y, month: m }, // 当前日期
       } = this.data;
 
-      if (open) {
-        if (year < y)
-          this.setDate(year, month, day, false, -1);
-        else if (year > y)
-          this.setDate(year, month, day, false, 1);
-        else if (month < m)
-          this.setDate(year, month, day, false, -1);
-        else if (month > m)
-          this.setDate(year, month, day, false, 1);
-        else this.setDate(year, month, day, false, 0);
-      } else this.setDate(year, month, day, false, 0);
+      if (year < y)
+        this.setDate(year, month, day, false, -1);
+      else if (year > y)
+        this.setDate(year, month, day, false, 1);
+      else if (month < m)
+        this.setDate(year, month, day, false, -1);
+      else if (month > m)
+        this.setDate(year, month, day, false, 1);
+      else this.setDate(year, month, day, false, 0);
     },
 
     // 滑动时事件

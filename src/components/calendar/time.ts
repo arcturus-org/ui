@@ -112,6 +112,32 @@ export function getFullDateList(
   return [lastlist, nowList, nextlist];
 }
 
+export function get7DayDateList(
+  idx: number,
+  year: number,
+  month: number, // 从 1 开始
+  day: number
+) {
+  const list: dateObj[][] = [];
+
+  // 上周
+  list[(idx + 2) % 3] = getFullCalendar(
+    year,
+    month,
+    day - 7
+  );
+  // 当周
+  list[idx] = getFullCalendar(year, month, day);
+  // 下周
+  list[(idx + 4) % 3] = getFullCalendar(
+    year,
+    month,
+    day + 7
+  );
+
+  return list;
+}
+
 // 获取指定月份完整的日历
 export function getFullCalendar(
   year: number,
@@ -181,6 +207,7 @@ export function getOffset(
 
 // 获取日期偏移量列表
 export function getOffsetList(
+  open: boolean,
   idx: number,
   year: number,
   month: number,
@@ -188,10 +215,18 @@ export function getOffsetList(
 ) {
   const offset: number[] = [];
 
-  // 前中后三个月的偏移量
-  offset[(idx + 2) % 3] = getOffset(year, month - 1, day);
-  offset[idx] = getOffset(year, month, day);
-  offset[(idx + 4) % 3] = getOffset(year, month + 1, day);
+  if (open) {
+    // 如果是打开的
+    // 前中后三个月的偏移量
+    offset[(idx + 2) % 3] = getOffset(year, month - 1, day);
+    offset[idx] = getOffset(year, month, day);
+    offset[(idx + 4) % 3] = getOffset(year, month + 1, day);
+  } else {
+    // 前中后三周的偏移量
+    offset[(idx + 2) % 3] = getOffset(year, month, day - 7);
+    offset[idx] = getOffset(year, month, day);
+    offset[(idx + 4) % 3] = getOffset(year, month, day + 7);
+  }
 
   return offset;
 }

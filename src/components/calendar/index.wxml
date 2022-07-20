@@ -70,7 +70,7 @@
           class="row justify-center items-center"
         >
           <view
-            class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : open ? 'other-month' : '' )}}"
+            class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'other-month' )}}"
             catchtap="selectChange"
             data-select="{{item}}"
           >
