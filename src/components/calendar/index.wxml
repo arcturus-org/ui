@@ -53,7 +53,7 @@
     circular="{{true}}"
     current="{{swiperIndex}}"
     bindchange="swiperChange"
-    style="height:{{open ? (dateList[swiperIndex].length / 7) * 50 : 50}}px;"
+    style="height:{{open ? (dateList[swiperIndex].length / 7) * 55 : 55}}px;"
   >
     <swiper-item
       wx:for="{{dateList}}"
@@ -62,7 +62,7 @@
     >
       <view
         class="t grid grid-row calendar__body"
-        style="transform: translateY({{open ? 0 : -offset[index]}}px); height:{{(dateList[index].length / 7) * 50}}px;"
+        style="transform: translateY({{open ? 0 : -offset[index]}}px); height:{{(dateList[index].length / 7) * 55}}px;"
       >
         <view
           wx:for="{{date}}"

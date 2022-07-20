@@ -199,9 +199,9 @@ export function getOffset(
     d.getMonth()
   ).getDay();
 
-  // 50px
+  // 55px
   return (
-    (Math.ceil((d.getDate() + startWeek) / 7) - 1) * 50
+    (Math.ceil((d.getDate() + startWeek) / 7) - 1) * 55
   );
 }
 
