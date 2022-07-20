@@ -52,21 +52,14 @@ Component({
         open,
       } = this.data;
 
-      if (open) {
-        if (year < y) return -1;
-        else if (year > y) return 1;
-        else if (month < m) return -1;
-        else if (month > m) return 1;
-      } else {
-        // 此时处于关闭状态
-        console.log(
-          `当前:${day}, ${month}, 原来: ${d}, ${m}`
-        );
-        // 月份一致, 小 6 天左滑, 大 6 天右滑
-        if (day > d || day < d - 6) {
+      if (year < y) return -1;
+      else if (year > y) return 1;
+      else if (month < m) return -1;
+      else if (month > m) return 1;
+      else if (!open) {
+        if (day < d - 6) {
           return -1;
-        } else if (day < d || day > d + 6) {
-          console.log('油滑');
+        } else if (day > d + 6) {
           return 1;
         }
       }
@@ -78,7 +71,8 @@ Component({
       year: number,
       month: number, // 从 1 开始
       day: number,
-      init: boolean = false // 是否需要初始化
+      init: boolean = false, // 是否需要初始化
+      dir: number // 滑动方向(左滑 -1, 右滑 1, 不滑 0)
     ) {
       const {
         selectDay: { year: y, month: m, day: d },
@@ -131,9 +125,8 @@ Component({
         this.triggerEvent('dayChange', selectDay);
       } else {
         const { year, month, day } = selectDay;
-        const flag = this.swiperDirection(year, month, day);
 
-        if (flag === -1) {
+        if (dir === -1) {
           // 需要左滑, 提前生成上上个月
           // 本月索引(index)是 0 1 2
           // 则上上月在数组中的索引(idx)是 1 2 0
@@ -156,7 +149,7 @@ Component({
             swiperIndex: sidx,
             selectDay,
           });
-        } else if (flag === 1) {
+        } else if (dir === 1) {
           // 需要右滑, 提前生成下下个月
           // 本月索引是 0 1 2
           // 则下下个月索引 2 0 1
@@ -305,7 +298,22 @@ Component({
         },
       } = e;
 
-      this.setDate(year, month, day);
+      const {
+        selectDay: { year: y, month: m}, // 当前日期
+        open,
+      } = this.data;
+
+      if (open) {
+        if (year < y)
+          this.setDate(year, month, day, false, -1);
+        else if (year > y)
+          this.setDate(year, month, day, false, 1);
+        else if (month < m)
+          this.setDate(year, month, day, false, -1);
+        else if (month > m)
+          this.setDate(year, month, day, false, 1);
+        else this.setDate(year, month, day, false, 0);
+      } else this.setDate(year, month, day, false, 0);
     },
 
     // 滑动时事件
@@ -325,25 +333,61 @@ Component({
           if (idx === 0 && index === 2) {
             // 右滑
             open
-              ? this.setDate(year, month + 1, day)
-              : this.setDate(year, month, day + 7);
+              ? this.setDate(year, month + 1, day, false, 1)
+              : this.setDate(
+                  year,
+                  month,
+                  day + 7,
+                  false,
+                  1
+                );
           } else {
             // 左滑
             open
-              ? this.setDate(year, month - 1, day)
-              : this.setDate(year, month, day - 7);
+              ? this.setDate(
+                  year,
+                  month - 1,
+                  day,
+                  false,
+                  -1
+                )
+              : this.setDate(
+                  year,
+                  month,
+                  day - 7,
+                  false,
+                  -1
+                );
           }
         } else {
           if (idx === 2 && index === 0) {
             // 左滑
             open
-              ? this.setDate(year, month - 1, day)
-              : this.setDate(year, month, day - 7);
+              ? this.setDate(
+                  year,
+                  month - 1,
+                  day,
+                  false,
+                  -1
+                )
+              : this.setDate(
+                  year,
+                  month,
+                  day - 7,
+                  false,
+                  -1
+                );
           } else {
             // 右滑
             open
-              ? this.setDate(year, month + 1, day)
-              : this.setDate(year, month, day + 7);
+              ? this.setDate(year, month + 1, day, false, 1)
+              : this.setDate(
+                  year,
+                  month,
+                  day + 7,
+                  false,
+                  1
+                );
           }
         }
       }
@@ -373,7 +417,8 @@ Component({
         selectDay.year,
         selectDay.month,
         selectDay.day,
-        true
+        true,
+        0
       );
 
       // 修改当前时间
