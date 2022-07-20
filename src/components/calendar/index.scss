@@ -6,6 +6,7 @@
 
 .calendar__container {
   border-radius: 4px;
+  min-width: 350px;
 
   @media (prefers-color-scheme: dark) {
     background: $dark;
@@ -54,7 +55,7 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(7, 50px);
+  grid-template-columns: repeat(7, auto);
 }
 
 .swpier-box {

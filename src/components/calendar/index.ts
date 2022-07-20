@@ -1,22 +1,11 @@
 import formatTime, {
   dateObj,
-  get7DaysList,
   getFullCalendar,
   getFullDateList,
+  getOffset,
+  getOffsetList,
 } from './time';
 import { solarToLunar } from './lunar';
-
-function getOffset(
-  year: number,
-  month: number,
-  day: number
-) {
-  const _ = new Date(year, month - 1);
-  const startWeek = _.getDay();
-
-  // 50px
-  return (Math.ceil((day + startWeek) / 7) - 1) * 50;
-}
 
 Component({
   properties: {
@@ -38,7 +27,7 @@ Component({
     selectDay: {}, // 选中时间
     nowDate: {}, // 当前时间
     open: true, // 日历是否展开
-    offset: 0, // 日历收起后偏移
+    offset: [0, 0, 0], // 日历收起后偏移
   },
   methods: {
     // picker 设置月份
@@ -48,91 +37,234 @@ Component({
       const month = Number(arr[1]);
       const day = Number(arr[2]);
 
-      this.setDate(year, month, day);
+      // 使用 pick 选择的话, 缓存就无效了, 需要重新初始化
+      this.setDate(year, month, day, true);
+    },
+
+    // 判断需要左滑还是右滑
+    swiperDirection(
+      year: number,
+      month: number,
+      day: number
+    ) {
+      const {
+        selectDay: { year: y, month: m, day: d }, // 当前日期
+        open,
+      } = this.data;
+
+      if (open) {
+        if (year < y) return -1;
+        else if (year > y) return 1;
+        else if (month < m) return -1;
+        else if (month > m) return 1;
+      } else {
+        // 此时处于关闭状态
+        console.log(
+          `当前:${day}, ${month}, 原来: ${d}, ${m}`
+        );
+        // 月份一致, 小 6 天左滑, 大 6 天右滑
+        if (day > d || day < d - 6) {
+          return -1;
+        } else if (day < d || day > d + 6) {
+          console.log('油滑');
+          return 1;
+        }
+      }
+
+      return 0;
     },
 
     setDate(
       year: number,
       month: number, // 从 1 开始
       day: number,
-      index: number,
-      key: string
+      init: boolean = false // 是否需要初始化
     ) {
       const {
         selectDay: { year: y, month: m, day: d },
+        swiperIndex: index,
         open,
       } = this.data;
 
       // 与已经选择的日期一致什么都不需要做
       if (y === year && m === month && d === day) return;
 
-      // 设置的日期其月份最大天数(如2021年6月最大天数30)与当前已设置的日期(selectDay.day)做比较
-      // 选择小的那个, 为了防止这个月跳下个月时不存在某一天 -> 如8月31日跳下个月后不存在31日
-      const maxDay = new Date(year, month, 0).getDate();
-      let D;
-      if (day && day < maxDay) {
-        D = day;
-      } else {
-        D = maxDay;
-      }
+      let date;
+      if (open) {
+        const num = new Date(year, month, 0).getDate();
+        const D = day && num > day ? day : num;
 
-      const date = new Date(year, month - 1, D);
+        // 当前日期
+        date = new Date(year, month - 1, D);
+      } else {
+        // 如果是收缩状态, 则超过这个月跳到下个月或上个月
+        date = new Date(year, month - 1, day);
+      }
 
       const selectDay = {
         year: date.getFullYear(),
         month: date.getMonth() + 1,
         day: date.getDate(),
-        lunarday: solarToLunar(year, month, D),
+        lunarday: solarToLunar(year, month, day),
         dateString: formatTime(date, 'Y-M-D'),
       };
 
-      if (y !== year || m !== month) {
-        if (key === 'last') {
-          // 上个月
-          this.setData({
-            [`dateList[${index}]`]: getFullCalendar(
-              year,
-              month - 1
-            ),
-          });
-        } else if (key === 'next') {
-          // 下个月
-          this.setData({
-            [`dateList[${index}]`]: getFullCalendar(
-              year,
-              month + 1
-            ),
-          });
-        } else {
-          // 既不是左滑也不是又滑, 则进行初始化操作
-          this.setData({
-            dateList: getFullDateList(year, month),
-          });
-        }
+      if (init) {
+        // 进行初始化
+        this.setData({
+          dateList: getFullDateList(
+            selectDay.year,
+            selectDay.month
+          ),
+          selectDay,
+          offset: getOffsetList(
+            1,
+            selectDay.year,
+            selectDay.month,
+            selectDay.day
+          ),
+        });
 
-        this.setSpot();
+        // 初始化操作, 三个都要执行
+        this.triggerEvent('yearChange', selectDay);
+        this.triggerEvent('monthChange', selectDay);
+        this.triggerEvent('dayChange', selectDay);
+      } else {
+        const { year, month, day } = selectDay;
+        const flag = this.swiperDirection(year, month, day);
 
-        if (year !== y) {
+        if (flag === -1) {
+          // 需要左滑, 提前生成上上个月
+          // 本月索引(index)是 0 1 2
+          // 则上上月在数组中的索引(idx)是 1 2 0
+          // 上月的索引(sidx)是 2 0 1
+          const idx = (index + 4) % 3,
+            sidx = (index + 2) % 3;
+
+          this.setData({
+            [`dateList[${idx}]`]: open
+              ? getFullCalendar(year, month - 1)
+              : getFullCalendar(year, month, day - 7),
+            [`offset[${idx}]`]: open
+              ? getOffset(year, month - 1, day)
+              : getOffset(year, month, day - 7),
+            [`offset[${sidx}]`]: getOffset(
+              year,
+              month,
+              day
+            ),
+            swiperIndex: sidx,
+            selectDay,
+          });
+        } else if (flag === 1) {
+          // 需要右滑, 提前生成下下个月
+          // 本月索引是 0 1 2
+          // 则下下个月索引 2 0 1
+          // 下个月索引 1 2 0
+          const idx = (index + 2) % 3,
+            sidx = (index + 4) % 3;
+
+          this.setData({
+            [`dateList[${idx}]`]: open
+              ? getFullCalendar(year, month + 1)
+              : getFullCalendar(year, month, day + 7),
+            [`offset[${idx}]`]: open
+              ? getOffset(year, month + 1, day)
+              : getOffset(year, month, day + 7),
+            [`offset[${sidx}]`]: getOffset(
+              year,
+              month,
+              day
+            ),
+            swiperIndex: sidx,
+            selectDay,
+          });
+        } else
+          open
+            ? this.setData({
+                selectDay,
+                offset: getOffsetList(
+                  index,
+                  year,
+                  month,
+                  day
+                ),
+              })
+            : this.setData({
+                selectDay,
+              });
+
+        if (y !== year)
           this.triggerEvent('yearChange', selectDay);
-        } else {
+        else if (month !== m)
           this.triggerEvent('monthChange', selectDay);
-        }
+
+        this.triggerEvent('dayChange', selectDay);
       }
 
-      // 无论是年、月、日哪个改变都要重新设置这个
-      this.setData({
-        selectDay,
-        offset: getOffset(year, month, day),
-      });
-
-      this.triggerEvent('dayChange', selectDay);
+      // this.setSpot();
     },
 
     // 展开收起
     openChange() {
-      this.setData({
-        open: !this.data.open,
-      });
+      const {
+        open,
+        swiperIndex: idx,
+        selectDay: { year, month, day },
+      } = this.data;
+
+      const next = (idx + 4) % 3,
+        last = (idx + 2) % 3;
+
+      if (open) {
+        // 打算关闭, 左右替换成上周和下周
+        this.setData({
+          [`offset[${next}]`]: getOffset(
+            year,
+            month,
+            day + 7
+          ),
+          [`offset[${last}]`]: getOffset(
+            year,
+            month,
+            day - 7
+          ),
+          [`dateList[${next}]`]: getFullCalendar(
+            year,
+            month,
+            day + 7
+          ),
+          [`dateList[${last}]`]: getFullCalendar(
+            year,
+            month,
+            day - 7
+          ),
+          open: !open,
+        });
+      } else {
+        // 打算展开, 左右替换成上月和下月
+        this.setData({
+          [`offset[${next}]`]: getOffset(
+            year,
+            month + 1,
+            day
+          ),
+          [`offset[${last}]`]: getOffset(
+            year,
+            month - 1,
+            day
+          ),
+          [`dateList[${next}]`]: getFullCalendar(
+            year,
+            month + 1
+          ),
+          [`dateList[${last}]`]: getFullCalendar(
+            year,
+            month - 1
+          ),
+          open: !open,
+        });
+      }
     },
 
     // 设置日历底下小圆点
@@ -179,60 +311,42 @@ Component({
     // 滑动时事件
     swiperChange(e) {
       const {
-        swiperIndex: lastIndex,
         selectDay: { year, month, day },
-      } = this.data; // 滑动前滑块
+        swiperIndex: index,
+        open,
+      } = this.data;
 
       const {
-        detail: { current: currentIndex },
-      } = e; // 滑动后滑块
+        detail: { current: idx, source },
+      } = e;
 
-      // 默认左滑
-      let flag = false;
-      // 滑动后的相邻月份下标
-      let index = 2;
-
-      // 因为当前滑块和之前滑块均有正确的日历
-      // 因此只需要更新当前滑块相邻滑块日历即可
-      // 例如当轮播图为[一月,二月,三月]时
-      // “左滑”后轮播图为[三月,一月,二月]
-      // 只需要将“三月”更新为“去年十二月”即可
-      //
-      // 右滑的情况有:
-      // 1.当前滑块下标(currentIndex)大于之前滑块下标(lastIndex)
-      // 2.当前滑块下标等于0 之前等于2(刚好右循环)
-      // 左滑的情况有:
-      // 1.当前滑块下标小于之前滑块下标
-      // 2.当前滑块下标为2 之前滑块下标等于0(刚好左循环)
-
-      if (lastIndex > currentIndex) {
-        // lastIndex > currentIndex 一般为左滑
-        // 除了 lastIndex === 2 && currentIndex === 0
-        lastIndex === 2 && currentIndex === 0
-          ? ((flag = true), (index = 1))
-          : currentIndex === 0
-          ? null
-          : (index = currentIndex - 1);
-      } else {
-        // lastIndex < currentIndex 一般为右滑
-        // 除了 lastIndex === 0 && currentIndex === 2 的情况
-        lastIndex === 0 && currentIndex === 2
-          ? (index = 1)
-          : ((flag = true),
-            currentIndex === 2
-              ? (index = 0)
-              : (index = currentIndex + 1));
+      if (source === 'touch') {
+        if (index > idx) {
+          if (idx === 0 && index === 2) {
+            // 右滑
+            open
+              ? this.setDate(year, month + 1, day)
+              : this.setDate(year, month, day + 7);
+          } else {
+            // 左滑
+            open
+              ? this.setDate(year, month - 1, day)
+              : this.setDate(year, month, day - 7);
+          }
+        } else {
+          if (idx === 2 && index === 0) {
+            // 左滑
+            open
+              ? this.setDate(year, month - 1, day)
+              : this.setDate(year, month, day - 7);
+          } else {
+            // 右滑
+            open
+              ? this.setDate(year, month + 1, day)
+              : this.setDate(year, month, day + 7);
+          }
+        }
       }
-
-      if (flag) {
-        this.setDate(year, month + 1, day, index, 'next'); // 右滑, 提前生成下个月
-      } else {
-        this.setDate(year, month - 1, day, index, 'last'); // 左滑, 提前生成上个月
-      }
-
-      this.setData({
-        swiperIndex: currentIndex,
-      });
     },
   },
 
@@ -258,10 +372,11 @@ Component({
       this.setDate(
         selectDay.year,
         selectDay.month,
-        selectDay.day
+        selectDay.day,
+        true
       );
 
-      // 修改
+      // 修改当前时间
       this.setData({
         nowDate: selectDay,
       });

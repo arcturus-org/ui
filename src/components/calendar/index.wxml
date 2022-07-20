@@ -53,7 +53,6 @@
     circular="{{true}}"
     current="{{swiperIndex}}"
     bindchange="swiperChange"
-    easing-function="easeInOutCubic"
     style="height:{{open ? (dateList[swiperIndex].length / 7) * 50 : 50}}px;"
   >
     <swiper-item
@@ -63,7 +62,7 @@
     >
       <view
         class="t grid calendar__body"
-        style="transform: translateY({{open ? 0 : -offset}}px); height:{{(dateList[swiperIndex].length / 7) * 50}}px;"
+        style="transform: translateY({{open ? 0 : -offset[index]}}px); height:{{(dateList[index].length / 7) * 50}}px;"
       >
         <view
           wx:for="{{date}}"
@@ -71,7 +70,7 @@
           class="row justify-center items-center"
         >
           <view
-            class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'other-month' )}}"
+            class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : open ? 'other-month' : '' )}}"
             catchtap="selectChange"
             data-select="{{item}}"
           >

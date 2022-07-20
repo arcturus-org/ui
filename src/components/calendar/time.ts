@@ -115,13 +115,23 @@ export function getFullDateList(
 // 获取指定月份完整的日历
 export function getFullCalendar(
   year: number,
-  month: number // 从 1 月开始
+  month: number, // 从 1 月开始
+  day?: number
 ) {
   const dateList: dateObj[] = [];
 
-  const now = new Date(year, month - 1); // 1 号
+  const d =
+    typeof day !== 'undefined'
+      ? new Date(year, month - 1, day)
+      : new Date(year, month - 1);
+
+  const now = new Date(d.getFullYear(), d.getMonth()); // 1 号
   const startWeek = now.getDay(); // 目标月 1 号对应的星期
-  const dayNums = new Date(year, month, 0).getDate(); // 当前月有多少天
+  const dayNums = new Date(
+    d.getFullYear(),
+    d.getMonth() + 1,
+    0
+  ).getDate(); // 当前月有多少天
 
   // ceil((某月 1 号星期数 + 某月天数) / 7) = 某月周数
   // 周数 * 7 = 可视日历的日期总数
@@ -149,67 +159,39 @@ export function getFullCalendar(
   return dateList;
 }
 
-// 收缩状态下的日期列表
-export function get7DaysList(
-  year: number,
-  month: number,
-  day: number
-) {
-  // 这周
-  const nowList = get7DaysCalendar(year, month, day);
-
-  // 上周
-  const lastWeek = new Date(year, month - 2, day - 7);
-  const lyear = lastWeek.getFullYear();
-  const lmonth = lastWeek.getMonth() + 1;
-  const lday = lastWeek.getDate();
-  const lastlist = get7DaysCalendar(lyear, lmonth, lday);
-
-  // 下周
-  const nextWeek = new Date(year, month, day + 7);
-  const nyear = nextWeek.getFullYear();
-  const nmonth = nextWeek.getMonth() + 1;
-  const nday = nextWeek.getDate();
-  const nextlist = get7DaysCalendar(nyear, nmonth, nday);
-
-  return [lastlist, nowList, nextlist];
-}
-
-// 获取围绕 day 的 7 天
-export function get7DaysCalendar(
+// 获取日期的偏移量
+export function getOffset(
   year: number,
   month: number, // 从 1 月开始
   day: number
 ) {
-  const dateList: dateObj[] = [];
+  const d = new Date(year, month - 1, day);
 
-  const now = new Date(year, month - 1); // 1 号
-  const startWeek = now.getDay(); // 目标月 1 号对应的星期
+  // 当月一号星期
+  const startWeek = new Date(
+    d.getFullYear(),
+    d.getMonth()
+  ).getDay();
 
-  for (let i = 0; i < 7; i++) {
-    const n = new Date(now);
-    // 当前周的 7 天
-    n.setDate(
-      Math.ceil((day + startWeek) / 7) * 7 -
-        6 -
-        startWeek +
-        i
-    );
+  // 50px
+  return (
+    (Math.ceil((d.getDate() + startWeek) / 7) - 1) * 50
+  );
+}
 
-    const obj = {
-      day: n.getDate(),
-      month: n.getMonth() + 1,
-      year: n.getFullYear(),
-      lunarday: solarToLunar(
-        n.getFullYear(),
-        n.getMonth() + 1,
-        n.getDate()
-      ),
-      dateString: formatTime(n, 'Y-M-D'),
-    };
+// 获取日期偏移量列表
+export function getOffsetList(
+  idx: number,
+  year: number,
+  month: number,
+  day: number
+) {
+  const offset: number[] = [];
 
-    dateList[i] = obj;
-  }
+  // 前中后三个月的偏移量
+  offset[(idx + 2) % 3] = getOffset(year, month - 1, day);
+  offset[idx] = getOffset(year, month, day);
+  offset[(idx + 4) % 3] = getOffset(year, month + 1, day);
 
-  return dateList;
+  return offset;
 }
