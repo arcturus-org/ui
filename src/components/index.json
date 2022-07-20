@@ -1,12 +1,21 @@
 {
   "usingComponents": {
     "ice-alert": "./alert/index",
+    "ice-button": "./button/index",
+    "ice-calendar": "./calendar/index",
     "ice-card": "./card/index",
+    "ice-card-actions": "./card/card-actions/index",
+    "ice-card-section": "./card/card-section/index",
+    "ice-cell": "./cell/index",
+    "ice-progress": "./chart/progress/index",
+    "ice-drawer": "./drawer/index",
     "ice-header": "./header/index",
-    "ice-tabbar": "./tabbar/index",
-    "ice-tabbar-item": "./tabbar-item/index",
     "ice-navbar": "./navbar/index",
+    "ice-notify": "./notify/index",
+    "ice-search": "./search/index",
     "ice-separator": "./separator/index",
-    "ice-cell": "./cell/index"
+    "ice-slidebar": "./slideBar/index",
+    "ice-tabbar": "./tabbar/index",
+    "ice-tabbar-item": "./tabbar-item/index"
   }
 }
