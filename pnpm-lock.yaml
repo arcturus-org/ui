@@ -8,7 +8,7 @@ specifiers:
   '@mpflow/plugin-unit-test': ^0.0.33
   '@mpflow/service': ^0.0.33
   '@types/jest': ^26.0.9
-  '@types/wechat-miniprogram': ^2.11.0
+  miniprogram-api-typings: ^3.5.0
   miniprogram-simulate: ^1.2.7
   sass: ^1.52.3
   typescript: ^3.9.7
@@ -19,12 +19,12 @@ dependencies:
   '@mpflow/plugin-typescript': 0.0.33_aun3th5muclam7orm2hihhogim
   '@mpflow/plugin-unit-test': 0.0.33_dhhv4mc6sjiw5papcercvdmoki
   '@mpflow/service': 0.0.33_enhanced-resolve@4.5.0
+  miniprogram-api-typings: 3.5.0
   sass: 1.52.3
 
 devDependencies:
   '@babel/runtime': 7.18.3
   '@types/jest': 26.0.24
-  '@types/wechat-miniprogram': 2.11.0
   miniprogram-simulate: 1.5.7
   typescript: 3.9.10
 
@@ -1874,10 +1874,6 @@ packages:
       anymatch: 3.1.2
       source-map: 0.6.1
     dev: false
-
-  /@types/wechat-miniprogram/2.11.0:
-    resolution: {integrity: sha512-yj6l9ln75X0a6rtAojr0Otyem5m4RlPnF4J/xRClIod3Xl5kCQWcMpshKIFxuoJZIDBfv9/rFhJUkDN5Gr6hcA==}
-    dev: true
 
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
@@ -5070,7 +5066,7 @@ packages:
     resolution: {integrity: sha512-yKugOAw8LmalSC9mFXsFf+q5WRUvqaeA0lnOiUJiBhyBCJGhbSLAqyfYv3+u5TQtQVVUrB691ocyJUNIuYkcmA==}
     dependencies:
       expr-parser: 1.0.0
-      miniprogram-api-typings: 3.4.6
+      miniprogram-api-typings: 3.5.0
       miniprogram-exparser: 2.15.0
 
   /jake/10.8.5:
@@ -5989,8 +5985,8 @@ packages:
       yallist: 4.0.0
     dev: false
 
-  /miniprogram-api-typings/3.4.6:
-    resolution: {integrity: sha512-1/aAma9wWzu9KS8m/h4j43UHoKS+XO61kaUDdftnlgwEyBndr0jrPJf/gUzdZQOST0pkLWmF0IMotz+j/Nh5SQ==}
+  /miniprogram-api-typings/3.5.0:
+    resolution: {integrity: sha512-cS/uXJTMGKujwoaeEFFFKqpCf7qp3R7iuQZWagZAwhKA3Z7U/xlhOcI3i1wqN+uo4YODg3AG1j2zCe1PDa9Wtg==}
 
   /miniprogram-compiler/0.2.1:
     resolution: {integrity: sha512-AHQgJFTnVPMcVBUUdKHlCRC3guK212XkWME0awMQiUgpzp/eIbb3jgFdkl3ib9nDbbEK+m2fSBs0++vwetWJ9Q==}

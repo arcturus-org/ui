@@ -13,7 +13,7 @@ npm run dev
 npm run dev:open
 ```
 
-## 构建打包
+## 构建打包(node LTS)
 
 ```bash
 npm run build

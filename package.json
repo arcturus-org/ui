@@ -15,12 +15,12 @@
     "@mpflow/plugin-typescript": "^0.0.33",
     "@mpflow/plugin-unit-test": "^0.0.33",
     "@mpflow/service": "^0.0.33",
+    "miniprogram-api-typings": "^3.5.0",
     "sass": "^1.52.3"
   },
   "devDependencies": {
     "@babel/runtime": "^7.11.2",
     "@types/jest": "^26.0.9",
-    "@types/wechat-miniprogram": "^2.11.0",
     "miniprogram-simulate": "^1.2.7",
     "typescript": "^3.9.7"
   },
