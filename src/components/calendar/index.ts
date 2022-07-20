@@ -29,6 +29,7 @@ Component({
     nowDate: {}, // 当前时间
     open: true, // 日历是否展开
     offset: [0, 0, 0], // 日历收起后偏移
+    timeMap: {},
   },
   methods: {
     // picker 设置月份
@@ -82,15 +83,19 @@ Component({
         // 进行初始化
         this.setData({
           dateList: open
-            ? getFullDateList(
-                selectDay.year,
-                selectDay.month
+            ? this.setSpot(
+                getFullDateList(
+                  selectDay.year,
+                  selectDay.month
+                )
               )
-            : get7DayDateList(
-                index,
-                selectDay.year,
-                selectDay.month,
-                selectDay.day
+            : this.setSpot(
+                get7DayDateList(
+                  index,
+                  selectDay.year,
+                  selectDay.month,
+                  selectDay.day
+                )
               ),
           selectDay,
           offset: getOffsetList(
@@ -118,8 +123,12 @@ Component({
 
           this.setData({
             [`dateList[${idx}]`]: open
-              ? getFullCalendar(year, month - 1)
-              : getFullCalendar(year, month, day - 7),
+              ? this.setSpot(
+                  getFullCalendar(year, month - 1)
+                )
+              : this.setSpot(
+                  getFullCalendar(year, month, day - 7)
+                ),
             [`offset[${idx}]`]: open
               ? getOffset(year, month - 1, day)
               : getOffset(year, month, day - 7),
@@ -141,8 +150,12 @@ Component({
 
           this.setData({
             [`dateList[${idx}]`]: open
-              ? getFullCalendar(year, month + 1)
-              : getFullCalendar(year, month, day + 7),
+              ? this.setSpot(
+                  getFullCalendar(year, month + 1)
+                )
+              : this.setSpot(
+                  getFullCalendar(year, month, day + 7)
+                ),
             [`offset[${idx}]`]: open
               ? getOffset(year, month + 1, day)
               : getOffset(year, month, day + 7),
@@ -173,8 +186,6 @@ Component({
 
         this.triggerEvent('dayChange', selectDay);
       }
-
-      // this.setSpot();
     },
 
     // 展开收起
@@ -201,15 +212,11 @@ Component({
             month,
             day - 7
           ),
-          [`dateList[${next}]`]: getFullCalendar(
-            year,
-            month,
-            day + 7
+          [`dateList[${next}]`]: this.setSpot(
+            getFullCalendar(year, month, day + 7)
           ),
-          [`dateList[${last}]`]: getFullCalendar(
-            year,
-            month,
-            day - 7
+          [`dateList[${last}]`]: this.setSpot(
+            getFullCalendar(year, month, day - 7)
           ),
           open: !open,
         });
@@ -226,13 +233,11 @@ Component({
             month - 1,
             day
           ),
-          [`dateList[${next}]`]: getFullCalendar(
-            year,
-            month + 1
+          [`dateList[${next}]`]: this.setSpot(
+            getFullCalendar(year, month + 1)
           ),
-          [`dateList[${last}]`]: getFullCalendar(
-            year,
-            month - 1
+          [`dateList[${last}]`]: this.setSpot(
+            getFullCalendar(year, month - 1)
           ),
           open: !open,
         });
@@ -240,31 +245,41 @@ Component({
     },
 
     // 设置日历底下小圆点
-    setSpot() {
+    setSpot(list: dateObj[] | dateObj[][]) {
       const {
-        spot,
-        dateList,
+        timeMap,
       }: {
-        spot: string[];
-        dateList: dateObj[][];
+        timeMap: Record<string, number>;
       } = this.data;
 
-      // 返回处理过的新数组
-      const timeArr = spot.map((item): string => {
-        return formatTime(item, 'Y-M-D');
-      });
-
-      // 列出数组中所有元素
-      dateList[1].forEach((item) => {
-        // 小圆点数组里存在的日期才显示小圆点
-        if (timeArr.indexOf(item.dateString) !== -1) {
-          item.spot = true;
+      for (let i = 0; i < list.length; i++) {
+        if (Array.isArray(list[i])) {
+          for (
+            let j = 0;
+            j < (list[i] as dateObj[]).length;
+            j++
+          ) {
+            if (
+              typeof timeMap[list[i][j].dateString] !==
+              'undefined'
+            ) {
+              list[i][j].spot =
+                timeMap[list[i][j].dateString];
+            }
+          }
         } else {
-          item.spot = false;
+          if (
+            typeof timeMap[
+              (list[i] as dateObj).dateString
+            ] !== 'undefined'
+          ) {
+            (list[i] as dateObj).spot =
+              timeMap[(list[i] as dateObj).dateString];
+          }
         }
-      });
+      }
 
-      this.setData({ dateList });
+      return list;
     },
 
     // 某一天被点击时
@@ -375,7 +390,7 @@ Component({
     attached() {
       // 如果存在默认时间则 dateString 使用默认时间
       // 否则获取当前时间
-      const { defaultTime } = this.data;
+      const { defaultTime, spot } = this.data;
 
       const now = defaultTime
         ? new Date(defaultTime)
@@ -388,6 +403,24 @@ Component({
         dateString: formatTime(now, 'Y-M-D'),
       };
 
+      // 关于事件的 map
+      const timeMap = {};
+      for (let i = 0; i < spot.length; i++) {
+        const str = formatTime(spot[i], 'Y-M-D');
+
+        if (typeof timeMap[str] !== 'undefined') {
+          timeMap[str]++;
+        } else {
+          timeMap[str] = 1;
+        }
+      }
+
+      // 修改当前时间
+      this.setData({
+        nowDate: selectDay,
+        timeMap,
+      });
+
       // 选中时间设置成当前时间
       this.setDate(
         selectDay.year,
@@ -396,18 +429,6 @@ Component({
         true,
         0
       );
-
-      // 修改当前时间
-      this.setData({
-        nowDate: selectDay,
-      });
-    },
-  },
-
-  // 数据监听器
-  observers: {
-    spot: function () {
-      this.setSpot();
     },
   },
 });

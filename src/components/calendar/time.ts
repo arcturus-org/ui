@@ -6,7 +6,7 @@ export interface dateObj {
   day: number;
   lunarday: Lunar; // 农历
   dateString: string; // Y-M-D 的形式
-  spot?: boolean;
+  spot?: number;
 }
 
 // 不足位数的日期上添加 "0" 补足位数

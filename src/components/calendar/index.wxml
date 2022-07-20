@@ -61,13 +61,13 @@
       wx:key="dateList"
     >
       <view
-        class="t grid calendar__body"
+        class="t grid grid-row calendar__body"
         style="transform: translateY({{open ? 0 : -offset[index]}}px); height:{{(dateList[index].length / 7) * 50}}px;"
       >
         <view
           wx:for="{{date}}"
           wx:key="dateString"
-          class="row justify-center items-center"
+          class="row justify-center items-center relative-position"
         >
           <view
             class="date__item column items-center justify-center {{(item.year === selectDay.year && item.month === selectDay.month) ? (item.day === selectDay.day ? 'select' : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'cur-month')) : ((item.year === nowDate.year && item.month === nowDate.month && item.day === nowDate.day) ? 'now' : 'other-month' )}}"
@@ -78,6 +78,15 @@
             <view class="lunar">
               {{item.lunarday.dayStr}}
             </view>
+          </view>
+          <!-- 底部小圆点 -->
+          <view
+            wx:for="{{item.spot > 7 ? 7 : item.spot}}"
+            wx:key="index"
+            style="transform: rotate({{index * 30}}deg);"
+            class="absolute spot__container"
+          >
+            <view class="absolute spot"></view>
           </view>
         </view>
       </view>

@@ -58,6 +58,10 @@
   grid-template-columns: repeat(7, auto);
 }
 
+.grid-row {
+  grid-template-rows: repeat(auto-fill, 55px);
+}
+
 .swpier-box {
   .date__item {
     width: 40px;
@@ -87,5 +91,20 @@
   }
   to {
     transform: scale(1);
+  }
+}
+
+.spot__container {
+  height: 53px;
+  width: 6px;
+  z-index: -1;
+
+  // 小圆点
+  .spot {
+    background: $red-6;
+    border-radius: 50%;
+    width: 6px;
+    height: 6px;
+    bottom: 0px;
   }
 }
