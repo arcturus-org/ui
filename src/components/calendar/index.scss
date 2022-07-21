@@ -22,6 +22,11 @@
     .other-month {
       color: $grey-7;
     }
+
+    .hasEvent {
+      background: $grey-9;
+      border-radius: 50%;
+    }
   }
 
   @media (prefers-color-scheme: light) {
@@ -37,6 +42,11 @@
 
     .other-month {
       color: $grey-5;
+    }
+
+    .hasEvent {
+      background: $grey-3;
+      border-radius: 50%;
     }
   }
 
@@ -64,8 +74,8 @@
 
 .swpier-box {
   .date__item {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 
     .lunar {
       font-size: 10px;
@@ -97,14 +107,14 @@
 .spot__container {
   height: 53px;
   width: 6px;
-  z-index: -1;
+  pointer-events: none;
 
   // 小圆点
   .spot {
     background: $red-6;
     border-radius: 50%;
-    width: 6px;
-    height: 6px;
-    bottom: 0px;
+    width: 4px;
+    height: 4px;
+    bottom: 3px;
   }
 }
