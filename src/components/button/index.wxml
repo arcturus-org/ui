@@ -1,1 +1,34 @@
-<button class="i-mx-sm i-my-none">{{label}}</button>
+<button
+  class="{{disabled ? 'disabled' : ''}} i-mx-sm i-my-none i-pa-sm {{type}} {{flat ? 'flat' : ''}} {{outlined ? 'outlined' : ''}} {{plain}} btn {{block ? 'block' : 'inline-block'}} {{rounded ? 'rounded' : ''}} {{square ? 'square' : ''}}"
+  bindgetuserinfo="onGetUserInfo"
+  bindcontact="onContact"
+  bindgetphonenumber="onGetPhoneNumber"
+  binderror="onError"
+  bindopensetting="onOpenSetting"
+  bindlaunchapp="onLaunchApp"
+  bindchooseavatar="onGetAvatar"
+  bindtap="onClick"
+  show-message-card="{{showMessageCard}}"
+  app-parameter="{{appParameter}}"
+  send-message-img="{{sendMessageImg}}"
+  send-message-path="{{sendMessagePath}}"
+  send-message-title="{{sendMessageTitle}}"
+  session-from="{{sessionFrom}}"
+  hover-stay-time="{{hoverStayTime}}"
+  hover-start-time="{{hoverStartTime}}"
+  hover-stop-propagation="{{hoverStopPropagation}}"
+  open-type="{{openType}}"
+  form-type="{{formType}}"
+>
+  <view class=" row items-center">
+    <ice-loading
+      wx:if="{{loading}}"
+      type="{{loadingType}}"
+      size="20"
+    ></ice-loading>
+
+    <ice-icon wx:elif="{{icon}}" icon="{{icon}}"></ice-icon>
+
+    <slot></slot>
+  </view>
+</button>

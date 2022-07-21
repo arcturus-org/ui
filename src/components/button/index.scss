@@ -1,1 +1,67 @@
 @import '../style/index.scss';
+
+$types: (
+  'primary': $primary,
+  'info': $info,
+  'waring': $warning,
+  'danger': $negative,
+  'positive': $positive,
+  'default': $grey-6,
+);
+
+.btn {
+  border-radius: 4px;
+  line-height: 1em;
+
+  &.rounded {
+    border-radius: 200px;
+  }
+
+  &.square:not(.rounded) {
+    border-radius: 0;
+  }
+
+  &::after {
+    content: none;
+  }
+
+  @each $type, $color in $types {
+    &.#{$type} {
+      color: $white;
+
+      &:not(.outlined),
+      &:not(.flat) {
+        background: $color;
+
+        &.disabled {
+          background: rgba($color, 0.5);
+        }
+      }
+
+      &.outlined:not(.flat) {
+        background: transparent;
+        border: 1px solid $color;
+        color: $color;
+
+        &.disabled {
+          border: 1px solid rgba($color, 0.5);
+          color: rgba($color, 0.5);
+        }
+      }
+
+      &.flat {
+        background: transparent;
+        color: $color;
+
+        &.disabled {
+          background: transparent;
+          color: rgba($color, 0.5);
+        }
+      }
+
+      &.disabled {
+        pointer-events: none;
+      }
+    }
+  }
+}

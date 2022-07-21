@@ -1,4 +1,7 @@
 {
-    "component": true,
-    "usingComponents": {}
+  "component": true,
+  "usingComponents": {
+    "ice-loading": "../loading/index",
+    "ice-icon": "../icon/index"
+  }
 }

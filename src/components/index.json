@@ -12,6 +12,7 @@
     "ice-header": "./header/index",
     "ice-navbar": "./navbar/index",
     "ice-notify": "./notify/index",
+    "ice-page": "./page/index",
     "ice-search": "./search/index",
     "ice-separator": "./separator/index",
     "ice-slidebar": "./slideBar/index",
