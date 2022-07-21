@@ -1,20 +1,5 @@
 @import 'components/style/index.scss';
 
-.container {
-  width: 100vw;
-  height: 100vh;
-  padding: 8px;
-  box-sizing: border-box;
-
-  @media (prefers-color-scheme: light) {
-    background: $grey-2;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    background: $dark-page;
-  }
-}
-
 .occupy-block {
   height: 60px;
 }

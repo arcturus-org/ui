@@ -58,19 +58,19 @@
       .row {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
           height: auto;
-          width: percentage(calc($i / $flex-cols));
+          width: percentage($i / $flex-cols);
         }
       }
 
       @if $i != 0 or $name != '' {
         #{str-fe('> .offset<name>-<i>', $name, $noProcNotZero, $ic)} {
-          margin-left: percentage(calc($i / $flex-cols));
+          margin-left: percentage($i / $flex-cols);
         }
       }
 
       .column {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
-          height: percentage(calc($i / $flex-cols));
+          height: percentage($i / $flex-cols);
           width: auto;
         }
       }
