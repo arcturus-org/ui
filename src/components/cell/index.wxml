@@ -22,6 +22,7 @@
   </view>
   <view class="row items-center">
     <view wx-if="{{value}}">{{value}}</view>
+    <slot name="right"></slot>
     <ice-icon
       wx-if="{{isLink || rightIcon}}"
       icon="{{isLink ? 'ri ri-arrow-right-s-line' : rightIcon}}"

@@ -42,6 +42,7 @@
         <view>hello</view>
         <view>, world!</view>
     </view>
+    <view slot="right">右边插槽</view>
 </ice-cell>
 ```
 
