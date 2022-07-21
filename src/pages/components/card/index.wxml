@@ -1,28 +1,33 @@
-<ice-navbar title="卡片" back></ice-navbar>
-<view class="container">
-  <ice-card>
-    <ice-header title="标题"></ice-header>
-    <ice-separator></ice-separator>
-    <view class="occupy-block"></view>
-  </ice-card>
-  <ice-card>
-    <ice-header title="标题" sub="副标题"></ice-header>
-    <ice-separator></ice-separator>
-    <view class="occupy-block"></view>
-  </ice-card>
-  <ice-card>
-    <ice-card-section>
-      Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit, sed do eiusmod tempor incididunt ut labore et
-      dolore magna aliqua. Ut enim ad minim veniam, quis
-      nostrud exercitation ullamco laboris nisi ut aliquip
-      ex ea commodo consequat.
-    </ice-card-section>
-  </ice-card>
-  <ice-card>
-    <ice-card-actions>
-      <ice-button label="取消"></ice-button>
-      <ice-button label="确认"></ice-button>
-    </ice-card-actions>
-  </ice-card>
-</view>
+<ice-page>
+  <ice-navbar title="卡片" back slot="navbar"></ice-navbar>
+
+  <view class="container">
+    <ice-card>
+      <ice-header title="标题"></ice-header>
+      <ice-separator></ice-separator>
+      <view class="occupy-block"></view>
+    </ice-card>
+    <ice-card>
+      <ice-header title="标题" sub="副标题"></ice-header>
+      <ice-separator></ice-separator>
+      <view class="occupy-block"></view>
+    </ice-card>
+    <ice-card>
+      <ice-card-section>
+        <view style="height: auto;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </view>
+      </ice-card-section>
+    </ice-card>
+    <ice-card>
+      <ice-card-actions>
+        <ice-button label="取消"></ice-button>
+        <ice-button label="确认"></ice-button>
+      </ice-card-actions>
+    </ice-card>
+  </view>
+</ice-page>

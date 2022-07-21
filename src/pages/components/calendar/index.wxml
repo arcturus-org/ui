@@ -1,4 +1,6 @@
-<ice-navbar title="日历" back></ice-navbar>
-<view class="container">
-  <ice-calendar spot="{{spots}}"></ice-calendar>
-</view>
+<ice-page>
+  <ice-navbar title="日历" back></ice-navbar>
+  <view class="container">
+    <ice-calendar spot="{{spots}}"></ice-calendar>
+  </view>
+</ice-page>

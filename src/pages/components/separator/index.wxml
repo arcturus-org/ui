@@ -1,5 +1,5 @@
-<view class="container">
-  <ice-navbar title="分割线" back></ice-navbar>
+<ice-page>
+  <ice-navbar title="分割线" back slot="navbar"></ice-navbar>
   <view class="i-ma-lg">
     <view class="text-bold i-my-md">普通分割线</view>
     <ice-separator></ice-separator>
@@ -57,4 +57,4 @@
       <view class="col-7">这是右边</view>
     </view>
   </view>
-</view>
+</ice-page>
