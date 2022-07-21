@@ -1,0 +1,105 @@
+<ice-page>
+  <ice-navbar title="按钮" back slot="navbar"></ice-navbar>
+
+  <ice-card>
+    <ice-header title="按钮类型"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button>默认按钮</ice-button>
+      <ice-button type="info">信息按钮</ice-button>
+      <ice-button type="primary">主要按钮</ice-button>
+      <ice-button type="danger">危险按钮</ice-button>
+      <ice-button type="waring">警告按钮</ice-button>
+      <ice-button type="positive">确认按钮</ice-button>
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="边框"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button outlined>默认按钮</ice-button>
+      <ice-button outlined type="info">信息按钮</ice-button>
+      <ice-button outlined type="primary"
+        >主要按钮</ice-button
+      >
+      <ice-button outlined type="danger"
+        >危险按钮</ice-button
+      >
+      <ice-button outlined type="waring"
+        >警告按钮</ice-button
+      >
+      <ice-button outlined type="positive"
+        >确认按钮</ice-button
+      >
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="flat"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button flat>默认按钮</ice-button>
+      <ice-button flat type="info">信息按钮</ice-button>
+      <ice-button flat type="primary">主要按钮</ice-button>
+      <ice-button flat type="danger">危险按钮</ice-button>
+      <ice-button flat type="waring">警告按钮</ice-button>
+      <ice-button flat type="positive">确认按钮</ice-button>
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="形状"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button square type="primary">
+        方形按钮
+      </ice-button>
+      <ice-button rounded type="primary">
+        圆形按钮
+      </ice-button>
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="禁用"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button disabled type="primary">
+        <view>禁用</view>
+      </ice-button>
+      <ice-button disabled type="primary" outlined>
+        <view>禁用</view>
+      </ice-button>
+      <ice-button disabled type="primary" flat>
+        <view>禁用</view>
+      </ice-button>
+      <ice-button disabled type="primary" rounded outlined>
+        <view>禁用</view>
+      </ice-button>
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="其他"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <ice-button
+        rounded
+        type="primary"
+        icon="ri ri-medal-line"
+      ></ice-button>
+      <ice-button
+        rounded
+        type="primary"
+        icon="ri ri-bar-chart-fill"
+      >
+        <view class="i-ml-sm">排行榜</view>
+      </ice-button>
+
+      <ice-button loading type="primary">
+        <view class="i-ml-sm">加载</view>
+      </ice-button>
+    </ice-card-section>
+  </ice-card>
+</ice-page>
