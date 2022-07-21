@@ -1,6 +1,11 @@
 import useNavInfo from '../utils/navInfo';
 
 Component({
+  relations: {
+    '../page/index': {
+      type: 'parent',
+    },
+  },
   properties: {
     blur: {
       // 是否开启毛玻璃效果
