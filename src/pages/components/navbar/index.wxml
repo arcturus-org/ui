@@ -1,0 +1,59 @@
+<ice-page>
+  <ice-navbar
+    title="导航栏"
+    sub="{{sub}}"
+    back
+    slot="navbar"
+    blur="{{blur}}"
+    occupy="{{occupy}}"
+    loading="{{loading}}"
+    left-icon="{{leftIcon}}"
+  ></ice-navbar>
+
+  <ice-card>
+    <ice-header title="背景磨砂"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell sub="背景透明度 < 1 时有效" label="状态">
+      <switch slot="right" bindchange="changeBlur" />
+    </ice-cell>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="布局"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell
+      sub="自动占位, 无需手动设置与顶部距离"
+      label="占有高度"
+    >
+      <switch
+        checked="{{true}}"
+        slot="right"
+        bindchange="changeOccupy"
+      />
+    </ice-cell>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="加载"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell sub="启用 loading 后 icon 失效" label="状态">
+      <switch slot="right" bindchange="changeLoading" />
+    </ice-cell>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="自定义左图标"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell label="状态">
+      <switch slot="right" bindchange="changeLeftIcon" />
+    </ice-cell>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="添加副标题"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-cell label="状态">
+      <switch slot="right" bindchange="changeSub" />
+    </ice-cell>
+  </ice-card>
+</ice-page>
