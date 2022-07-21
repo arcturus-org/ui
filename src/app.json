@@ -5,7 +5,8 @@
     "pages/components/card/index",
     "pages/components/separator/index",
     "pages/components/row/index",
-    "pages/components/calendar/index"
+    "pages/components/calendar/index",
+    "pages/components/button/index"
   ],
   "tabBar": {
     "custom": true,
@@ -25,7 +26,6 @@
     "ice-header": "components/header/index",
     "ice-cell": "components/cell/index",
     "ice-navbar": "components/navbar/index",
-    "ice-pages": "components/pages/index",
     "ice-page": "components/page/index",
     "ice-tabbar": "components/tabbar/index",
     "ice-tabbar-item": "components/tabbar-item/index",
