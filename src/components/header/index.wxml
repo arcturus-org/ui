@@ -1,4 +1,4 @@
-<view class="row justify-between items-center i-pa-sm">
+<view class="row justify-between items-center i-py-sm i-px-md">
   <view class="column {{center?'items-center':''}}">
     <!-- 主标题 -->
     <view class="text-bold ellipsis" wx:if="{{title}}">{{title}}</view>
