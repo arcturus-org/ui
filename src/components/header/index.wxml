@@ -1,9 +1,15 @@
-<view class="row justify-between items-center i-py-sm i-px-md">
+<view
+  class="row justify-between items-center i-py-sm {{navbar ? '' : 'i-px-md'}}"
+>
   <view class="column {{center?'items-center':''}}">
     <!-- 主标题 -->
-    <view class="text-bold ellipsis" wx:if="{{title}}">{{title}}</view>
+    <view class="text-bold ellipsis" wx:if="{{title}}"
+      >{{title}}</view
+    >
     <!-- 副标题 -->
-    <view class="subtitle ellipsis" wx:if="{{sub}}">{{sub}}</view>
+    <view class="subtitle ellipsis" wx:if="{{sub}}"
+      >{{sub}}</view
+    >
   </view>
   <!-- 自定义插槽 -->
   <slot></slot>

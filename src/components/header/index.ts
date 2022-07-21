@@ -7,5 +7,6 @@ Component({
       type: Boolean,
       value: false,
     },
+    navbar: Boolean,
   },
 });

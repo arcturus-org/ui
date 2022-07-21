@@ -15,21 +15,22 @@
       <ice-loading
         wx:if="{{loading}}"
         type="normal"
-        size="20"
-        class="i-loading-class"
+        size="25"
+        class="i-mx-sm"
       ></ice-loading>
 
       <ice-icon
         wx:elif="{{back || leftIcon}}"
         icon="{{leftIcon ? leftIcon : 'ri ri-arrow-left-s-line'}}"
-        class="i-icon-class"
+        class="i-mx-sm"
         bindtap="click"
         size="25"
       ></ice-icon>
 
       <!-- 导航栏标题 -->
       <ice-header
-        style="width: {{navWidth - 25}}px;"
+        navbar
+        style="width: {{navWidth - 41}}px;"
         title="{{title}}"
         sub="{{sub}}"
       ></ice-header>
