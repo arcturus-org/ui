@@ -29,7 +29,7 @@
 
       <!-- 导航栏标题 -->
       <ice-header
-        navbar
+        navbar="{{back || leftIcon}}"
         style="width: {{navWidth - 41}}px;"
         title="{{title}}"
         sub="{{sub}}"
