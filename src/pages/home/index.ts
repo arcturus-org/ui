@@ -6,7 +6,7 @@ Page({
         list: [
           {
             label: '导航栏',
-            path: '',
+            path: '/pages/components/navbar/index',
           },
           {
             label: '卡片',
@@ -15,14 +15,6 @@ Page({
           {
             label: '栅格',
             path: '/pages/components/row/index',
-          },
-          {
-            label: 'grid',
-            path: '',
-          },
-          {
-            label: '标题',
-            path: '',
           },
         ],
       },
