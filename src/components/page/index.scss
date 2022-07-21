@@ -1,6 +1,19 @@
-.i-page-item__container {
-  display: inline-block;
-  position: relative;
-  height: 100%;
-  width: 100%;
+@import '../style/index.scss';
+
+.i-pages__container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+
+  @media (prefers-color-scheme: light) {
+    background: $grey-2;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    background: $dark-page;
+  }
+
+  .i-pages__scroll {
+    width: 100%;
+  }
 }
