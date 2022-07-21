@@ -19,9 +19,10 @@ Component({
       type: Boolean,
       value: true,
     },
-    backgroundColor: {
-      type: String,
-      value: 'rgba(255, 255, 255, 0.8)',
+    vertical: {
+      // 是否垂直
+      type: Boolean,
+      value: false,
     },
     selected: {
       type: Number,

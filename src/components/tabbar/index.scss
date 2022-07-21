@@ -1,9 +1,18 @@
+@import '../style/index.scss';
+
 .i-tabbar__container {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  z-index: 999;
+  z-index: $z-tabber;
   padding-bottom: env(safe-area-inset-bottom);
+
+  &.vertical {
+    width: auto;
+    height: 100%;
+  }
+
+  &.horizotal {
+    width: 100%;
+    height: auto;
+  }
 
   &.shadow {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
@@ -11,6 +20,36 @@
 
   &.blur {
     backdrop-filter: blur(30px);
+
+    @media (prefers-color-scheme: light) {
+      & {
+        background: rgba($white, 0.5);
+        color: $dark;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        background: rgba($dark, 0.5);
+        color: $white;
+      }
+    }
+  }
+
+  &.not-blur {
+    @media (prefers-color-scheme: light) {
+      & {
+        background: $white;
+        color: $dark;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) {
+      & {
+        background: $dark;
+        color: $white;
+      }
+    }
   }
 
   &.fixed {
