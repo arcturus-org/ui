@@ -1,26 +1,20 @@
-<ice-navbar title="首页"></ice-navbar>
-<view class="container">
-  <ice-card>
-    <ice-header title="布局组件"></ice-header>
-    <ice-separator></ice-separator>
-    <ice-cell
-      wx:for="{{layout}}"
+<ice-page>
+  <ice-navbar title="首页" slot="navbar"></ice-navbar>
+  <view class="container">
+    <ice-card
+      wx:for="{{nav}}"
       wx:key="index"
-      label="{{item.label}}"
-      path="{{item.path}}"
-      is-link
-    ></ice-cell>
-  </ice-card>
-
-  <ice-card>
-    <ice-header title="展示组件"></ice-header>
-    <ice-separator></ice-separator>
-    <ice-cell
-      wx:for="{{display}}"
-      wx:key="index"
-      label="{{item.label}}"
-      path="{{item.path}}"
-      is-link
-    ></ice-cell>
-  </ice-card>
-</view>
+      wx:for-item="n"
+    >
+      <ice-header title="{{n.title}}"></ice-header>
+      <ice-separator></ice-separator>
+      <ice-cell
+        wx:for="{{n.list}}"
+        wx:key="index"
+        label="{{item.label}}"
+        path="{{item.path}}"
+        is-link
+      ></ice-cell>
+    </ice-card>
+  </view>
+</ice-page>

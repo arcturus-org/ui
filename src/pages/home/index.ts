@@ -1,35 +1,52 @@
 Page({
   data: {
-    layout: [
+    nav: [
       {
-        label: '导航栏',
-        path: '',
+        title: '布局组件',
+        list: [
+          {
+            label: '导航栏',
+            path: '',
+          },
+          {
+            label: '卡片',
+            path: '/pages/components/card/index',
+          },
+          {
+            label: '栅格',
+            path: '/pages/components/row/index',
+          },
+          {
+            label: 'grid',
+            path: '',
+          },
+          {
+            label: '标题',
+            path: '',
+          },
+        ],
       },
       {
-        label: '卡片',
-        path: '/pages/components/card/index',
+        title: '基础组件',
+        list: [
+          {
+            label: '按钮',
+            path: '/pages/components/button/index',
+          },
+        ],
       },
       {
-        label: '栅格',
-        path: '/pages/components/row/index',
-      },
-      {
-        label: 'grid',
-        path: '',
-      },
-      {
-        label: '标题',
-        path: '',
-      },
-    ],
-    display: [
-      {
-        label: '分割线',
-        path: '/pages/components/separator/index',
-      },
-      {
-        label: '日历',
-        path: '/pages/components/calendar/index',
+        title: '展示组件',
+        list: [
+          {
+            label: '分割线',
+            path: '/pages/components/separator/index',
+          },
+          {
+            label: '日历',
+            path: '/pages/components/calendar/index',
+          },
+        ],
       },
     ],
   },
