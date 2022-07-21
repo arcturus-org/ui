@@ -1,35 +1,107 @@
-<view class="i-loading__container i-loading-class">
-  <!-- 百叶窗式 loading -->
+<view
+  class="i-loading__container i-loading-class {{vertical ? 'column' : 'row'}} items-center justify-center"
+>
+  <!-- 百叶窗 -->
   <view
     wx:if="{{type === 'shutter'}}"
-    class="i-shutter-loading__container"
+    class="shutter-loading"
     style="width: {{size}}px; height: {{size}}px;"
   >
-    <span class="leaf-1 leaf"></span>
-    <span class="leaf-2 leaf"></span>
-    <span class="leaf-3 leaf"></span>
-    <span class="leaf-4 leaf"></span>
+    <view
+      wx:for="{{4}}"
+      wx:key="index"
+      class="leaf-{{index}} leaf inline-block"
+    ></view>
   </view>
 
-  <!-- 普通 loading -->
+  <!-- 百叶窗 2 -->
+  <view
+    wx:if="{{type === 'shutter-2'}}"
+    class="shutter-loading-2"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view
+      wx:for="{{4}}"
+      wx:key="index"
+      class="leaf-{{index}} leaf inline-block"
+    ></view>
+  </view>
+
+  <!-- 百叶窗 3 -->
+  <view
+    wx:if="{{type === 'shutter-3'}}"
+    class="shutter-loading-3"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view
+      wx:for="{{4}}"
+      wx:key="index"
+      class="leaf-{{index}} leaf inline-block"
+    ></view>
+  </view>
+
+  <!-- 百叶窗 4 -->
+  <view
+    wx:if="{{type === 'shutter-4'}}"
+    class="shutter-loading-4"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view
+      wx:for="{{4}}"
+      wx:key="index"
+      class="leaf-{{index}} leaf inline-block"
+    ></view>
+  </view>
+
+  <!-- 普通 -->
   <view
     wx:if="{{type === 'normal'}}"
-    class="i-normal-loading__container"
-    style="width: {{size}}px; height: {{size}}px;"
-  >
-    <view class="loading"></view>
-  </view>
+    class="normal-loading box"
+    style="width: {{size}}px; height: {{size}}px; border: 2px solid {{color}}; border-top-color: #ffffff33;"
+  ></view>
 
-  <!-- 脉动式 loading -->
+  <!-- 脉动 -->
   <view
-    wx:if="{{type === 'pulse'}}"
-    class="i-pulse-loading__container"
+    wx:if="{{type === 'pulse-1'}}"
+    class="pulse-loading row items-center"
     style="width: {{size}}px; height: {{size}}px;"
   >
-    <view class="pulse"></view>
+    <view
+      wx:for="{{3}}"
+      wx:key="index"
+      class="pulse-bar-{{index}} pulse-1 inline-block"
+    ></view>
   </view>
 
-  <text wx:if="{{text}}" class="i-loading__text" style="color: {{color}};"
-    >{{text}}</text
+  <view
+    wx:if="{{type === 'pulse-2'}}"
+    class="pulse-loading row items-center"
+    style="width: {{size}}px; height: {{size}}px;"
   >
+    <view
+      wx:for="{{3}}"
+      wx:key="index"
+      class="pulse-bar-{{index}} pulse-2 inline-block"
+    ></view>
+  </view>
+
+  <view
+    wx:if="{{type === 'pulse-3'}}"
+    class="pulse-loading row items-start"
+    style="width: {{size}}px; height: {{size}}px;"
+  >
+    <view
+      wx:for="{{3}}"
+      wx:key="index"
+      class="pulse-bar-{{index}} pulse-3 inline-block"
+    ></view>
+  </view>
+
+  <view
+    wx:if="{{text}}"
+    class="text {{vertical ? 'i-mt-sm' : 'i-ml-sm'}}"
+    style="color: {{color}};"
+  >
+    {{text}}
+  </view>
 </view>

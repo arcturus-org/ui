@@ -6,7 +6,8 @@
     "pages/components/separator/index",
     "pages/components/row/index",
     "pages/components/calendar/index",
-    "pages/components/button/index"
+    "pages/components/button/index",
+    "pages/components/loading/index"
   ],
   "tabBar": {
     "custom": true,
@@ -34,7 +35,8 @@
     "ice-card-section": "components/card/card-section/index",
     "ice-card-actions": "components/card/card-actions/index",
     "ice-button": "components/button/index",
-    "ice-calendar": "components/calendar/index"
+    "ice-calendar": "components/calendar/index",
+    "ice-loading": "components/loading/index"
   },
   "themeLocation": "theme.json",
   "darkmode": true,

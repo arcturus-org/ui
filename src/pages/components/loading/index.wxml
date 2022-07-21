@@ -1,0 +1,43 @@
+<ice-page>
+  <ice-navbar title="加载" back slot="navbar"></ice-navbar>
+
+  <ice-card>
+    <ice-header title="样式"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <view
+        class="row items-center"
+      >
+        <ice-loading class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="shutter" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="shutter-2" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="shutter-3" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="shutter-4" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="pulse-1" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="pulse-2" class="col-4 i-my-md"></ice-loading>
+        <ice-loading type="pulse-3" class="col-4 i-my-md"></ice-loading>
+      </view>
+    </ice-card-section>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="自定义颜色"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-section>
+      <view
+        class="occupy-block row items-center justify-around"
+      >
+        <ice-loading color="#2196f3"></ice-loading>
+        <ice-loading
+          color="#2196f3"
+          text="加载中"
+        ></ice-loading>
+        <ice-loading
+          color="#2196f3"
+          text="加载中"
+          vertical
+        ></ice-loading>
+      </view>
+    </ice-card-section>
+  </ice-card>
+</ice-page>

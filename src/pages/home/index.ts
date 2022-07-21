@@ -46,6 +46,10 @@ Page({
             label: '日历',
             path: '/pages/components/calendar/index',
           },
+          {
+            label: '加载',
+            path: '/pages/components/loading/index',
+          },
         ],
       },
     ],

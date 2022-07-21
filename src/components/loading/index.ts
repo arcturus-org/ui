@@ -1,26 +1,44 @@
+const types = [
+  'shutter',
+  'shutter-2',
+  'shutter-3',
+  'shutter-4',
+  'normal',
+  'pulse-1',
+  'pulse-2',
+  'pulse-3',
+];
+
 Component({
   externalClasses: ['i-loading-class'],
   properties: {
     text: String,
     color: {
       type: String,
-      value: '#fff',
+      value: '#c0c4cc',
     },
     size: {
       type: Number,
-      value: 50,
+      value: 40,
     },
     type: {
       type: String,
-      value: 'shutter', // shutter | normal
+      value: 'normal', // shutter | normal
+    },
+    vertical: {
+      // 加载和文字是否垂直排列
+      type: Boolean,
+      value: false,
     },
   },
   lifetimes: {
     attached() {
       const { type } = this.data;
 
-      if (type !== 'shutter' && type !== 'normal') {
-        console.warn(`样式${type} 在 i-loading 中暂不支持哦`);
+      if (!types.includes(type)) {
+        console.warn(
+          `样式${type} 在 i-loading 中暂不支持哦`
+        );
       }
     },
   },
