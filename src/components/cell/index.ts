@@ -6,6 +6,7 @@ Component({
     },
     path: String,
     label: String,
+    sub: String,
     value: String,
     leftIcon: String,
     rightIcon: String,
