@@ -5,13 +5,11 @@
     scroll-y="{{true}}"
     scroll-with-animation="{{true}}"
     class="i-pages__scroll box"
-    style="height: calc(100vh - {{navHeight}}px);"
+    style="height: {{height}}px;"
     enhanced="{{true}}"
     show-scrollbar="{{false}}"
   >
     <view style="content: ''; overflow: hidden;"></view>
     <slot></slot>
   </scroll-view>
-
-  <slot name="tabbar"></slot>
 </view>
