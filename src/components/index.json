@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "ice-alert": "./alert/index",
     "ice-button": "./button/index",
     "ice-calendar": "./calendar/index",
     "ice-card": "./card/index",

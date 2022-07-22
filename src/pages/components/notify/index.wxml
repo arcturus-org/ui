@@ -1,0 +1,98 @@
+<ice-page>
+  <ice-navbar
+    title="消息通知"
+    back
+    slot="navbar"
+  ></ice-navbar>
+
+  <ice-card>
+    <ice-header title="静态消息通知"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-alert type="info" message="消息通知"></ice-alert>
+    <ice-alert type="warning" message="警告"></ice-alert>
+    <ice-alert type="positive" message="成功"></ice-alert>
+    <ice-alert type="negative" message="错误"></ice-alert>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="带图标通知"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-alert
+      show-icon
+      type="info"
+      message="消息通知"
+    ></ice-alert>
+    <ice-alert
+      show-icon
+      type="warning"
+      message="警告"
+    ></ice-alert>
+    <ice-alert
+      show-icon
+      type="positive"
+      message="成功"
+    ></ice-alert>
+    <ice-alert
+      show-icon
+      type="negative"
+      message="错误"
+    ></ice-alert>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="自定义图标"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-alert
+      show-icon
+      icon="ri ri-bilibili-line"
+      type="info"
+      message="消息通知"
+    ></ice-alert>
+    <ice-alert type="info" message="插槽">
+      <image
+        src="./晴.svg"
+        style="width: 20px; height: 20px;"
+      ></image>
+    </ice-alert>
+
+    <ice-alert show-icon type="info" message="右插槽">
+      <ice-icon
+        slot="right"
+        icon="ri ri-close-circle-line"
+      ></ice-icon>
+    </ice-alert>
+  </ice-card>
+
+  <ice-card>
+    <ice-header title="弹窗"></ice-header>
+    <ice-separator></ice-separator>
+    <ice-card-actions align="center">
+      <ice-button bindtap="onOpen1">
+        上方打开消息通知
+      </ice-button>
+      <ice-button bindtap="onOpen2">
+        下方打开消息通知
+      </ice-button>
+      <ice-button bindtap="onOpen3">
+        命令打开通知
+      </ice-button>
+    </ice-card-actions>
+  </ice-card>
+</ice-page>
+
+<ice-notify
+  open="{{open1}}"
+  message="上方弹窗"
+  position="top"
+  show-icon
+></ice-notify>
+
+<ice-notify
+  open="{{open2}}"
+  message="下方弹窗"
+  position="bottom"
+  show-icon
+></ice-notify>
+
+<!-- 使用命令打开 -->
+<ice-notify id="i-notify"></ice-notify>

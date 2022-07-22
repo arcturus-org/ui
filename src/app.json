@@ -1,57 +1,60 @@
 {
-    "pages": [
-        "pages/home/index",
-        "pages/about/index",
-        "pages/components/card/index",
-        "pages/components/separator/index",
-        "pages/components/row/index",
-        "pages/components/calendar/index",
-        "pages/components/button/index",
-        "pages/components/loading/index",
-        "pages/components/navbar/index",
-        "pages/components/search/index",
-        "pages/components/drawer/index",
-        "pages/components/progress/index"
-    ],
-    "tabBar": {
-        "custom": true,
-        "list": [
-            {
-                "pagePath": "pages/about/index",
-                "text": "关于"
-            },
-            {
-                "pagePath": "pages/home/index",
-                "text": "首页"
-            }
-        ]
-    },
-    "usingComponents": {
-        "ice-separator": "components/separator/index",
-        "ice-header": "components/header/index",
-        "ice-cell": "components/cell/index",
-        "ice-navbar": "components/navbar/index",
-        "ice-page": "components/page/index",
-        "ice-tabbar": "components/tabbar/index",
-        "ice-tabbar-item": "components/tabbar-item/index",
-        "ice-icon": "components/icon/index",
-        "ice-card": "components/card/index",
-        "ice-card-section": "components/card/card-section/index",
-        "ice-card-actions": "components/card/card-actions/index",
-        "ice-button": "components/button/index",
-        "ice-calendar": "components/calendar/index",
-        "ice-loading": "components/loading/index",
-        "ice-progress": "components/chart/progress/index",
-        "ice-slide-bar": "components/slideBar/index",
-        "ice-search": "components/search/index",
-        "ice-drawer": "components/drawer/index"
-    },
-    "themeLocation": "theme.json",
-    "darkmode": true,
-    "window": {
-        "navigationBarTextStyle": "@navTxtStyle",
-        "navigationBarBackgroundColor": "@navBgColor",
-        "navigationStyle": "custom"
-    },
-    "sitemapLocation": "sitemap.json"
+  "pages": [
+    "pages/home/index",
+    "pages/about/index",
+    "pages/components/card/index",
+    "pages/components/separator/index",
+    "pages/components/row/index",
+    "pages/components/calendar/index",
+    "pages/components/button/index",
+    "pages/components/loading/index",
+    "pages/components/navbar/index",
+    "pages/components/search/index",
+    "pages/components/drawer/index",
+    "pages/components/progress/index",
+    "pages/components/notify/index"
+  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/about/index",
+        "text": "关于"
+      },
+      {
+        "pagePath": "pages/home/index",
+        "text": "首页"
+      }
+    ]
+  },
+  "usingComponents": {
+    "ice-separator": "components/separator/index",
+    "ice-header": "components/header/index",
+    "ice-cell": "components/cell/index",
+    "ice-navbar": "components/navbar/index",
+    "ice-page": "components/page/index",
+    "ice-tabbar": "components/tabbar/index",
+    "ice-tabbar-item": "components/tabbar-item/index",
+    "ice-icon": "components/icon/index",
+    "ice-card": "components/card/index",
+    "ice-card-section": "components/card/card-section/index",
+    "ice-card-actions": "components/card/card-actions/index",
+    "ice-button": "components/button/index",
+    "ice-calendar": "components/calendar/index",
+    "ice-loading": "components/loading/index",
+    "ice-progress": "components/chart/progress/index",
+    "ice-slide-bar": "components/slideBar/index",
+    "ice-search": "components/search/index",
+    "ice-drawer": "components/drawer/index",
+    "ice-alert": "components/alert/index",
+    "ice-notify": "components/notify/index"
+  },
+  "themeLocation": "theme.json",
+  "darkmode": true,
+  "window": {
+    "navigationBarTextStyle": "@navTxtStyle",
+    "navigationBarBackgroundColor": "@navBgColor",
+    "navigationStyle": "custom"
+  },
+  "sitemapLocation": "sitemap.json"
 }
