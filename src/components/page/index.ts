@@ -28,10 +28,12 @@ Component({
   lifetimes: {
     attached() {
       const tabbar = this.getTabBar();
+      const height = useSafeHeight();
 
       if (tabbar) {
-        const height = useSafeHeight();
         // 当前页面存在 tabbar
+        this.setData({ height: height - 60 });
+      } else {
         this.setData({ height });
       }
     },
