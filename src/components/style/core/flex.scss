@@ -1,3 +1,4 @@
+@use 'sass:math';
 @import 'variables.scss';
 @import 'utils.scss';
 
@@ -58,19 +59,19 @@
       .row {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
           height: auto;
-          width: percentage($i / $flex-cols);
+          width: percentage(math.div($i, $flex-cols));
         }
       }
 
       @if $i != 0 or $name != '' {
         #{str-fe('> .offset<name>-<i>', $name, $noProcNotZero, $ic)} {
-          margin-left: percentage($i / $flex-cols);
+          margin-left: percentage(math.div($i, $flex-cols));
         }
       }
 
       .column {
         #{str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)} {
-          height: percentage($i / $flex-cols);
+          height: percentage(math.div($i, $flex-cols));
           width: auto;
         }
       }
