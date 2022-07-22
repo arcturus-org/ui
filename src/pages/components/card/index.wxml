@@ -25,8 +25,8 @@
     </ice-card>
     <ice-card>
       <ice-card-actions>
-        <ice-button label="取消"></ice-button>
-        <ice-button label="确认"></ice-button>
+        <ice-button>取消</ice-button>
+        <ice-button>确认</ice-button>
       </ice-card-actions>
     </ice-card>
   </view>
