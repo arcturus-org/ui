@@ -8,7 +8,8 @@
         "pages/components/calendar/index",
         "pages/components/button/index",
         "pages/components/loading/index",
-        "pages/components/navbar/index"
+        "pages/components/navbar/index",
+        "pages/components/search/index"
     ],
     "tabBar": {
         "custom": true,
@@ -37,7 +38,10 @@
         "ice-card-actions": "components/card/card-actions/index",
         "ice-button": "components/button/index",
         "ice-calendar": "components/calendar/index",
-        "ice-loading": "components/loading/index"
+        "ice-loading": "components/loading/index",
+        "ice-progress": "components/chart/progress/index",
+        "ice-slide-bar": "components/slideBar/index",
+        "ice-search": "components/search/index"
     },
     "themeLocation": "theme.json",
     "darkmode": true,

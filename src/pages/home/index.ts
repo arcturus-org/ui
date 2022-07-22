@@ -19,6 +19,24 @@ Page({
         ],
       },
       {
+        title: '表单组件',
+        list: [
+          {
+            label: '搜索框',
+            path: '/pages/components/search/index',
+          },
+        ],
+      },
+      {
+        title: '反馈组件',
+        list: [
+          {
+            label: '消息通知',
+            path: '',
+          },
+        ],
+      },
+      {
         title: '基础组件',
         list: [
           {
@@ -41,6 +59,14 @@ Page({
           {
             label: '加载',
             path: '/pages/components/loading/index',
+          },
+          {
+            label: '进度条',
+            path: '',
+          },
+          {
+            label: '滑动组装图',
+            path: '',
           },
         ],
       },
