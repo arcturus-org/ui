@@ -1,3 +1,7 @@
-<view class="i-card__container {{bordered ? 'outlined' : ''}} i-ma-sm">
-  <slot></slot>
+<view class="i-px-sm i-py-xs">
+  <view
+    class="i-card__container {{bordered ? 'outlined' : ''}}"
+  >
+    <slot></slot>
+  </view>
 </view>
