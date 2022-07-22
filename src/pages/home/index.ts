@@ -32,7 +32,7 @@ Page({
         list: [
           {
             label: '消息通知',
-            path: '',
+            path: '/pages/components/notify/index',
           },
         ],
       },

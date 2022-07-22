@@ -1,4 +1,4 @@
-import useSafeHeight from '../utils/safeArea';
+import useSafeArea from '../utils/safeArea';
 
 Component({
   // 启用多 slot 支持
@@ -28,7 +28,7 @@ Component({
   lifetimes: {
     attached() {
       const tabbar = this.getTabBar();
-      const height = useSafeHeight();
+      const { height } = useSafeArea();
 
       if (tabbar) {
         // 当前页面存在 tabbar
