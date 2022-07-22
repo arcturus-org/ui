@@ -1,0 +1,23 @@
+<ice-page>
+  <ice-navbar title="抽屉" back slot="navbar"></ice-navbar>
+
+  <ice-drawer
+    placement="right"
+    open="{{right}}"
+  ></ice-drawer>
+
+  <ice-drawer placement="left" open="{{left}}"></ice-drawer>
+
+  <ice-drawer placement="bottom" open="{{bottom}}">
+    <view style="height: 200px;"></view>
+  </ice-drawer>
+
+  <ice-drawer placement="top" open="{{top}}">
+    <view style="height: 200px;"></view>
+  </ice-drawer>
+
+  <ice-button bindtap="onRight">右</ice-button>
+  <ice-button bindtap="onLeft">左</ice-button>
+  <ice-button bindtap="onBottom">下</ice-button>
+  <ice-button bindtap="onTop">上</ice-button>
+</ice-page>

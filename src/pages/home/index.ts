@@ -68,6 +68,10 @@ Page({
             label: '滑动组装图',
             path: '',
           },
+          {
+            label: '抽屉',
+            path: '/pages/components/drawer/index',
+          },
         ],
       },
     ],
