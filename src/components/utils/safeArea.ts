@@ -8,8 +8,8 @@ export default function useSafeHeight(): number {
       const {
         safeArea: { height },
       } = wx.getSystemInfoSync();
-      
-      return height - 60;
+
+      return height;
     }
   })();
 }
