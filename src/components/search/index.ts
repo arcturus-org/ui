@@ -1,19 +1,12 @@
 Component({
   externalClasses: ['placeholder-class'],
   properties: {
-    shape: {
-      type: String,
-      value: 'round', // round | square
-    },
+    shape: String,
     value: {
       type: String,
       value: '',
     },
-    background: {
-      //  搜索输入框外背景色
-      type: String,
-      value: '#fff',
-    },
+    background: String, //  搜索输入框外背景色
     disabled: {
       // 是否禁用
       type: Boolean,
@@ -38,25 +31,38 @@ Component({
       type: Boolean,
       value: false,
     },
-    borderRadius: Number, // 自定义 border-radius
+    borderRadius: {
+      type: Number,
+      value: 50,
+    }, // 自定义 border-radius
   },
   data: {
     radius: 0,
+    style: '',
   },
   lifetimes: {
     attached() {
-      const { shape, borderRadius } = this.data;
+      const { shape, borderRadius, background } = this.data;
+
+      let style = '';
+      if (background) {
+        style = `background: ${background};`;
+      }
 
       if (shape === 'round') {
         this.setData({
           radius: 50 / 2,
+          style,
         });
       } else if (shape !== 'square') {
         if (borderRadius !== 0) {
           this.setData({
             radius: borderRadius,
+            style,
           });
         }
+      } else {
+        this.setData({ style });
       }
     },
   },

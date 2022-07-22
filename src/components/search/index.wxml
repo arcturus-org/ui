@@ -1,6 +1,14 @@
-<view class="i-search__container" style="background: {{background}};">
-  <view class="i-search-item__container" style="border-radius: {{radius}}px;">
-    <ice-icon name="search" size="20" class="i-icon-class"></ice-icon>
+<view class="i-search__container" style="{{style}}">
+  <view
+    class="i-search-item__container row items-center"
+    style="border-radius: {{radius}}px;"
+  >
+    <ice-icon
+      icon="ri ri-search-2-line"
+      size="20"
+      class="i-icon-class"
+    ></ice-icon>
+
     <input
       value="{{value}}"
       placeholder="{{placeholder}}"
@@ -11,8 +19,8 @@
       bindfocus="focus"
       bindblur="blur"
       bindconfirm="search"
-      placeholder-class="{{center ? 'center' : ''}} {{placeholder-class}}"
-      class="i-search__input {{center ? 'center' : ''}}"
+      placeholder-class="{{center ? 'text-center' : ''}}"
+      class="i-search__input {{center ? 'text-center' : ''}}"
     />
   </view>
 </view>
