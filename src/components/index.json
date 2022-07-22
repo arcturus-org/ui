@@ -9,7 +9,6 @@
     "ice-cell": "./cell/index",
     "ice-progress": "./chart/progress/index",
     "ice-drawer": "./drawer/index",
-    "ice-header": "./header/index",
     "ice-navbar": "./navbar/index",
     "ice-notify": "./notify/index",
     "ice-page": "./page/index",
