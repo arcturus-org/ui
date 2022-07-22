@@ -1,1 +1,5 @@
-<canvas type="2d" id="progress" class="progress__container"></canvas>
+<canvas
+  type="2d"
+  id="progress"
+  style="width: {{width}}px; height: {{height}}px"
+></canvas>

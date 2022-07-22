@@ -12,7 +12,7 @@ export default class semicircle extends Canvas {
 
     this.ctx.textAlign = textStyle?.textAlign ?? 'center';
     this.ctx.font = `bold ${textStyle?.fontSize ?? '40'}px ${
-      textStyle?.fontFamily || 'monospace'
+      textStyle?.fontFamily ?? 'monospace'
     }`;
     this.ctx.textBaseline = 'middle';
 

@@ -4,6 +4,14 @@ import Options from './options';
 Component({
   properties: {
     options: Object,
+    width: {
+      type: Number,
+      value: 200,
+    },
+    height: {
+      type: Number,
+      value: 200,
+    },
   },
 
   lifetimes: {
