@@ -1,15 +1,14 @@
-export default function useSafeHeight(): number {
-  let safeHeight;
+export default function useSafeArea(): WechatMiniprogram.SafeArea {
+  let safeArea;
 
   return (function () {
-    if (safeHeight) {
-      return safeHeight;
+    if (safeArea) {
+      return safeArea;
     } else {
-      const {
-        safeArea: { height },
-      } = wx.getSystemInfoSync();
+      const { safeArea: a } = wx.getSystemInfoSync();
+      safeArea = a;
 
-      return height;
+      return safeArea;
     }
   })();
 }
