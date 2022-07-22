@@ -37,6 +37,8 @@ Component({
   data: {
     current: 0,
     children: [],
+    height: 0,
+    width: 0,
   },
   methods: {
     switchTab(idx: number): void {
@@ -52,6 +54,17 @@ Component({
     },
   },
   lifetimes: {
+    attached() {
+      this.createSelectorQuery()
+        .select('#tabbar')
+        .fields({ size: true }, (res) => {
+          this.setData({
+            height: res.height,
+            width: res.width,
+          });
+        })
+        .exec();
+    },
     ready() {
       const nodes = this.getRelationNodes(
         '../tabbar-item/index'

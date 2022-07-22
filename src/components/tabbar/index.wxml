@@ -1,5 +1,6 @@
 <view
   bind:change="change"
+  id="tabbar"
   class="i-tabbar__container {{vertical ? 'column vertical' : 'row horizotal' }} items-center {{shadow ? 'shadow' :''}} {{blur ? 'blur' : 'not-blur'}} {{fixed ? 'fixed' : ''}}"
 >
   <slot></slot>
