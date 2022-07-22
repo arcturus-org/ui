@@ -23,12 +23,12 @@ npm run build
 - [x] calendar  
 - [x] tabbar  
 - [x] navbar  
-- [ ] notify/alert  
+- [x] notify/alert  
 - [x] page
 - [x] separator  
 - [x] search  
 - [x] icon  
-- [ ] progress  
+- [x] progress  
 - [x] cell  
 - [x] button  
 - [x] drawer  
