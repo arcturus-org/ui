@@ -62,7 +62,7 @@ Page({
           },
           {
             label: '进度条',
-            path: '',
+            path: '/pages/components/progress/index',
           },
           {
             label: '滑动组装图',

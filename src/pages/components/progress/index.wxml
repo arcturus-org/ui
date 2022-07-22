@@ -1,0 +1,17 @@
+<ice-page>
+  <ice-navbar
+    back
+    title="进度条"
+    slot="navbar"
+  ></ice-navbar>
+
+  <ice-card>
+    <ice-header title="默认进度条"> </ice-header>
+    <ice-separator></ice-separator>
+    <ice-section>
+      <view class="row items-center justify-center">
+        <ice-progress options="{{options}}"></ice-progress>
+      </view>
+    </ice-section>
+  </ice-card>
+</ice-page>

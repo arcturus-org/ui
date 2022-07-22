@@ -4,7 +4,7 @@
     "setting": {
         "compileHotReLoad": true
     },
-    "libVersion": "2.25.0",
+    "libVersion": "2.25.1",
     "condition": {
         "miniprogram": {
             "list": [
@@ -67,6 +67,13 @@
                 {
                     "name": "抽屉",
                     "pathName": "pages/components/drawer/index",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "进度条",
+                    "pathName": "pages/components/progress/index",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
