@@ -1,14 +1,22 @@
-<view class="i-alert__container">
+<view class="i-pa-sm">
   <view
-    class="i-alert-item__container i-alert-class"
-    style="background-color: {{backgroundColor}};"
+    class="container i-alert-class i-pa-sm row justify-between items-center {{type}}"
+    style="{{style}}"
   >
-    <ice-icon
-      i-icon-class="i-alert__icon"
-      wx:if="{{icon_}}"
-      name="{{icon_}}"
-      size="20"
-    ></ice-icon>
-    <view style="color: {{color}};" class="i-alert__message">{{message}}</view>
+    <view class="i-mx-xs row items-center">
+      <ice-icon
+        wx:if="{{showIcon}}"
+        icon="{{icon ? icon : typeIcon}}"
+        size="20"
+      ></ice-icon>
+
+      <slot></slot>
+    </view>
+
+    <view class="i-alert__message" style="{{messageStyle}}">
+      {{message}}
+    </view>
+
+    <slot name="right"></slot>
   </view>
 </view>

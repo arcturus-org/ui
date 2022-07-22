@@ -1,3 +1,12 @@
-<view wx-if="{{show}}" class="i-notify__container" style="background: {{innerBackground}};">
-  <view style="color:{{color}};">{{message}}</view>
+<view
+  class="container {{position}} {{show ? 'open' : 'close'}}"
+>
+  <ice-alert
+    show-icon="{{showIcon}}"
+    icon="{{icon}}"
+    type="{{type}}"
+    backgroundColor="{{backgroundColor}}"
+    color="{{color}}"
+    message="{{message}}"
+  ></ice-alert>
 </view>

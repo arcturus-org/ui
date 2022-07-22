@@ -1,0 +1,27 @@
+.container {
+  left: 50%;
+  width: 80vw;
+  transform: translateX(-50%);
+  position: fixed;
+  transition: all 1s ease;
+
+  &.open {
+    &.top {
+      top: 90px;
+    }
+
+    &.bottom {
+      bottom: 90px;
+    }
+  }
+
+  &.close {
+    &.top {
+      top: -100px;
+    }
+
+    &.bottom {
+      bottom: -100px;
+    }
+  }
+}

@@ -19,6 +19,9 @@ interface options {
   selector?: string;
   type?: string;
   duration?: number;
+  icon?: string;
+  showIcon?: boolean;
+  position?: string;
   backgroundColor?: string;
   color?: string;
   context?: WechatMiniprogram.Page.Instance<
@@ -28,9 +31,10 @@ interface options {
 }
 
 const defaultOptions = {
-  message: '',
   selector: '#i-notify',
-  type: 'type',
+  showIcon: true,
+  type: 'info',
+  position: 'bottom',
 };
 
 // 获取上下文
@@ -41,7 +45,7 @@ function getContext() {
 
 export default function notify(options: options) {
   options = Object.assign(defaultOptions, options);
-  const context = options.context || getContext();
+  const context = options.context ?? getContext();
 
   // 组件节点
   const node = context.selectComponent(options.selector!);
@@ -53,12 +57,12 @@ export default function notify(options: options) {
   if (node) {
     node.setData({ ...options });
     node.show();
+  } else {
+    console.warn('未找到 i-notify 节点');
   }
-
-  console.warn('未找到 i-notify 节点');
 }
 
-['success', 'warning', 'info', 'error'].forEach((e) => {
+['positive', 'negative', 'info', 'warning'].forEach((e) => {
   (notify as any)[e] = function (options: options) {
     options = Object.assign(options, {
       type: e,

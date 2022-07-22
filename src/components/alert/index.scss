@@ -1,20 +1,32 @@
-.i-alert__container {
-  padding-bottom: 10px;
+@import '../style/index.scss';
 
-  .i-alert-item__container {
-    min-height: 1.2em;
-    padding: 10px;
-    border-radius: 4px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.container {
+  min-height: 1.2em;
+  padding: 10px;
+  border-radius: 4px;
+  color: $white;
 
-    .i-alert__icon {
-      margin: 0 0.5em;
-    }
+  &.positive {
+    background-color: $positive;
+  }
 
-    .i-alert__message {
-      flex: 1;
-    }
+  &.negative {
+    background-color: $negative;
+  }
+
+  &.info {
+    background-color: $info;
+  }
+
+  &.warning {
+    background-color: $warning;
+  }
+
+  .i-alert__icon {
+    margin: 0 0.5em;
+  }
+
+  .i-alert__message {
+    flex: 1;
   }
 }

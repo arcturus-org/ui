@@ -1,43 +1,61 @@
-/**
- * 与 i-notify 的区别是这是静态的...
- */
+// 与 i-notify 的区别是这是静态的...
+
+const typeMap = {
+  positive: 'ri ri-checkbox-circle-line',
+  negative: 'ri ri-alert-line',
+  info: 'ri ri-notification-line',
+  warning: 'ri ri-error-warning-line',
+};
 
 Component({
+  options: {
+    multipleSlots: true,
+  },
   externalClasses: ['i-alert-class'],
   properties: {
-    backgroundColor: {
+    backgroundColor: String,
+    color: String,
+    type: {
       type: String,
-      value: '#fff',
+      value: 'info',
     },
-    color: {
-      type: String,
-      value: '#000',
-    },
-    type: String,
     message: String,
     icon: String,
+    showIcon: {
+      type: Boolean,
+      value: false,
+    },
   },
   data: {
-    icon_: '',
+    style: '',
+    messageStyle: '',
+    typeIcon: '',
   },
   lifetimes: {
     attached() {
-      const { icon, type, message } = this.data;
+      const { backgroundColor, color, type } = this.data;
 
-      if (icon !== '') {
-        this.setData({
-          icon_: icon,
-        });
-      } else if (type !== '') {
-        // 如果 icon 没有定义则使用 type 定义的图标
-        this.setData({
-          icon_: type,
-        });
+      let style = '';
+      let messageStyle = '';
+      let typeIcon = '';
+
+      if (backgroundColor) {
+        style = `background-color: ${backgroundColor};`;
       }
 
-      if (message === '') {
-        console.warn('i-alert 缺少 message 参数');
+      if (color) {
+        messageStyle = `color: ${color};`;
       }
+
+      if (type) {
+        typeIcon = typeMap[type];
+      }
+
+      this.setData({
+        messageStyle,
+        style,
+        typeIcon,
+      });
     },
   },
 });

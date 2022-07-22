@@ -7,49 +7,30 @@ Component({
       type: String,
       value: '',
     },
-    color: {
-      // 通知内容颜色
-      type: String,
-      value: '#fff',
-    },
+    backgroundColor: String,
+    color: String,
     type: {
-      // 通知类型
       type: String,
-      value: 'info', // error | warning | info | success
+      value: 'info',
     },
-    backgroundColor: String, // 自定义背景颜色
+    icon: String,
+    showIcon: {
+      type: Boolean,
+      value: false,
+    },
+    position: {
+      type: String,
+      value: 'top',
+    },
     duration: {
       // 持续时间
       type: Number,
       value: 1000,
     },
+    open: Boolean,
   },
   data: {
-    innerBackground: '#409EFF', // blue
-    show: false, // 是否展示消息通知
-  },
-  lifetimes: {
-    attached() {
-      if (this.data.backgroundColor == undefined) {
-        if (this.data.type === 'error') {
-          this.setData({
-            innerBackGround: '#F56C6C',
-          });
-        } else if (this.data.type === 'success') {
-          this.setData({
-            innerBackGround: '#67C23A',
-          });
-        } else if (this.data.type === 'waring') {
-          this.setData({
-            innerBackGround: '#E6A23C',
-          });
-        }
-      } else {
-        this.setData({
-          innerBackGround: this.data.backgroundColor,
-        });
-      }
-    },
+    show: false,
   },
   methods: {
     hide() {
@@ -58,12 +39,20 @@ Component({
     },
     show() {
       this.setData({ show: true });
-
       const { duration } = this.data;
+
       if (duration > 0 && duration !== Infinity) {
         timer = setTimeout(() => {
           this.hide();
-        }, duration);
+        }, duration + 1000); // 过渡动画要 1s
+      }
+    },
+  },
+
+  observers: {
+    open(o: Boolean) {
+      if (o) {
+        this.show();
       }
     },
   },
