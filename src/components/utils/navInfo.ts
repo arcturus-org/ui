@@ -26,18 +26,14 @@ function navInfo(): nav {
   };
 }
 
-function _() {
+export default function useNavInfo() {
   let n;
 
-  return function (): nav {
+  return (function (): nav {
     if (n) {
       return n;
     } else {
       return navInfo();
     }
-  };
+  })();
 }
-
-const useNavInfo = _();
-
-export default useNavInfo;
